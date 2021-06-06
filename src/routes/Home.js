@@ -1,10 +1,10 @@
 import React from 'react';
-import a from '../assets/images/bg/1.jpg';
-import b from '../assets/images/bg/2.jpg';
-import c from '../assets/images/bg/3.jpg';
-import d from '../assets/images/bg/4.jpg';
+// import a from '../assets/images/bg/1.jpg';
+// import b from '../assets/images/bg/2.jpg';
+// import c from '../assets/images/bg/3.jpg';
+// import d from '../assets/images/bg/4.jpg';
 
-const images = [a, b, c, d]
+// const images = [a, b, c, d]
 
 function Home() {
   return (
