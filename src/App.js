@@ -9,16 +9,20 @@ import Contact from './routes/Contact';
 
 function App() {
   return (
-    <HashRouter>
+    <>
       <Navigator />
-      <Switch>
-        <Route path="/" exact={true} component={ Home }/>
-        <Route path="/about" component={ About }/>
-        <Route path="/stories" component={ Stories }/>
-        <Route path="/contact" component={ Contact }/>
-      </Switch>
+      <div className='all-container'>
+        <HashRouter>
+          <Switch>
+            <Route path="/" exact={true} component={ Home }/>
+            <Route path="/about" component={ About }/>
+            <Route path="/stories" component={ Stories }/>
+            <Route path="/contact" component={ Contact }/>
+          </Switch>
+        </HashRouter>
+      </div>
       <Footer />
-    </HashRouter>
+    </>
   );
 }
 

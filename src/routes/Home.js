@@ -1,29 +1,21 @@
 import React from 'react';
-// import a from '../assets/images/bg/1.jpg';
-// import b from '../assets/images/bg/2.jpg';
-// import c from '../assets/images/bg/3.jpg';
-// import d from '../assets/images/bg/4.jpg';
-
-// const images = [a, b, c, d]
-
+import BG_IMAGES from '../assets/images/bg/index.js';
+// 브랜딩 디자이너 님이 주신 디자인을 최대한 홈에 반영하기
 function Home() {
   return (
     <>
-      {/* {images.map((image, index) => {
-        console.log(images[index]);
-        // <img src={images[index]} width="50" className="d-inline-block align-top" alt="logo"/>
-      })} */}
-      <div>
-        세이프짐에서 당신은 당신에게 집중할 수 있습니다.
-      </div>
-      <div>
-        안전하고 자유롭게 운동하세요.
-      </div>
-      <div>
-        IN A SAFE GYM, YOU CAN CONCENTRATE ON YOU.
-      </div>
-      <div>
-        EXERCISE SAFELY AND FREELY.
+      <img src={ BG_IMAGES[3] } className="bgImage" alt="woman lifting weight"/>
+      <div className='main-copy-container'>
+        <h1>
+          세이프짐에서 당신은 당신에게 집중할 수 있습니다.
+          안전하고 자유롭게 운동하세요.
+        </h1>
+        <h5>
+          IN A SAFE GYM, YOU CAN CONCENTRATE ON YOU.
+        </h5>
+        <h5>
+          EXERCISE SAFELY AND FREELY.
+        </h5>
       </div>
     </>
   );

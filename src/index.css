@@ -1,6 +1,8 @@
+@import url('https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@100;300;400;500;700;900&display=swap');
+
 body {
   margin: 0;
-  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
+  font-family: 'Noto Sans KR', -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
     'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
     sans-serif;
   -webkit-font-smoothing: antialiased;
@@ -12,8 +14,58 @@ code {
     monospace;
 }
 
+.all-container{
+  /* color: #FFFFFF; */
+  margin: 2em;
+  margin-bottom: 30em;
+  text-align: center;
+}
+
+.main-copy-container{
+  margin-top: 3em;
+  text-align: left;
+}
+
+h1 {
+  color: #155BE8;
+  font-size: xx-large;
+  font-weight: 700;
+  letter-spacing: -0.04em;
+}
+
+h5{
+  color: #FFFFFF;
+}
+
+.bgImage {
+	position: fixed;
+	top: 0;
+	left: 0;
+	width: 100%;
+	height: 100%;
+	z-index: -1;
+	object-fit: cover;
+  filter: brightness(40%);
+  animation: fadeIn 2s linear;
+}
+
+.contact-title {
+  text-align: center;
+  font-size: 3rem;
+  font-weight: 700;
+  letter-spacing: 0em;
+}
+
+.contact-sns{
+  margin: 1em;
+  margin-top: 3em;
+
+  color: #000000;
+  font-weight:700;
+}
+
 footer {
-  color: #737373;
+  color: #FFFFFF;
   text-align: center;
   font-size: 12px;
   margin: 0 4px 20px 4px;

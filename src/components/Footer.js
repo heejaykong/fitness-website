@@ -3,7 +3,7 @@ import React from 'react';
 function Footer() {
   return (
     <footer>
-      © 클럽매니저
+      © 세이프짐
     </footer>
   );
 }
