@@ -1,19 +1,20 @@
 import React from 'react';
 import Media from 'react-bootstrap/Media'
 import BG_IMAGES from '../assets/images/bg/index.js';
-// 어바웃은 텍스트/사진 위주가 될 것 
+// 어바웃은 텍스트/사진 위주가 될 것
 
 function About() {
   return (
     <>
       <div>about</div>
       {BG_IMAGES.map(img => {
+        console.log(img)
         return (
           <Media>
             <img
-              width={64}
-              height={64}
-              className="mr-3"
+              // width={100}
+              // height={64}
+              className="mr-3 photo"
               src={img}
               alt="Generic placeholder"
             />

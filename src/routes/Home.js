@@ -1,10 +1,11 @@
 import React from 'react';
 import BG_IMAGES from '../assets/images/bg/index.js';
 // 브랜딩 디자이너 님이 주신 디자인을 최대한 홈에 반영하기
+
 function Home() {
   return (
-    <>
-      <img src={ BG_IMAGES[3] } className="bgImage" alt="woman lifting weight"/>
+    <>      
+      <img src={ BG_IMAGES[3] } className="bg-image" alt="woman lifting weight"/>
       <div className='main-copy-container'>
         <h1>
           세이프짐에서 당신은 당신에게 집중할 수 있습니다.

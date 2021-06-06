@@ -37,7 +37,7 @@ h5{
   color: #FFFFFF;
 }
 
-.bgImage {
+.bg-image {
 	position: fixed;
 	top: 0;
 	left: 0;
@@ -46,7 +46,22 @@ h5{
 	z-index: -1;
 	object-fit: cover;
   filter: brightness(40%);
-  animation: fadeIn 2s linear;
+  animation: fadeIn 2s;
+  -moz-animation: fadeIn 3s; /* Firefox */
+  -webkit-animation: fadeIn 2s; /* Safari and Chrome */
+  -o-animation: fadeIn 3s; /* Opera */
+}
+
+.photo {
+	width: 100px;
+	/* height: 100%; */
+	/* z-index: -1; */
+	object-fit: cover;
+  /* filter: brightness(40%); */
+  animation: fadeIn 2s;
+  -moz-animation: fadeIn 3s; /* Firefox */
+  -webkit-animation: fadeIn 2s; /* Safari and Chrome */
+  -o-animation: fadeIn 3s; /* Opera */
 }
 
 .contact-title {
@@ -59,7 +74,6 @@ h5{
 .contact-sns{
   margin: 1em;
   margin-top: 3em;
-
   color: #000000;
   font-weight:700;
 }
@@ -69,4 +83,37 @@ footer {
   text-align: center;
   font-size: 12px;
   margin: 0 4px 20px 4px;
+}
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+@-moz-keyframes fadeIn { /* Firefox */
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+@-webkit-keyframes fadeIn { /* Safari and Chrome */
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+@-o-keyframes fadeIn { /* Opera */
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
 }
