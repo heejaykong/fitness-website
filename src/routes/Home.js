@@ -9,10 +9,10 @@ const images = [a, b, c, d]
 function Home() {
   return (
     <>
-      {images.map((image, index) => {
+      {/* {images.map((image, index) => {
         console.log(images[index]);
         // <img src={images[index]} width="50" className="d-inline-block align-top" alt="logo"/>
-      })}
+      })} */}
       <div>
         세이프짐에서 당신은 당신에게 집중할 수 있습니다.
       </div>
