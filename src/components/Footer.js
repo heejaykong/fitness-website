@@ -2,7 +2,9 @@ import React from 'react';
 
 function Footer() {
   return (
-    <h1>footer</h1>
+    <footer>
+      © 클럽매니저
+    </footer>
   );
 }
 
