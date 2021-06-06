@@ -12,10 +12,10 @@ function Contact() {
       <p>12-345-6789</p>
 
       <p className='contact-sns'>인스타그램</p>
-      <img src={ig} width='50'/>
+      <img src={ig} width='50' alt='instagram'/>
 
       <p className='contact-sns'>카카오톡</p>
-      <img src={kakao} width='60'/>
+      <img src={kakao} width='60' alt='kakaotalk'/>
 
     </>
   );
