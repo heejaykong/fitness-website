@@ -6,9 +6,7 @@ import BG_IMAGES from '../assets/images/bg/index.js';
 function About() {
   return (
     <>
-      <section id="about">
-        about heyhey
-      </section>
+      <span>about heyhey</span>
     </>
   );
 }
