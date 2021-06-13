@@ -1,7 +1,11 @@
 @import url("https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@100;300;400;500;700;900&display=swap");
 
 * {
-  /* border: 1px solid yellow; */
+  border: 1px solid yellow;
+}
+
+html {
+  scroll-behavior: smooth;
 }
 
 body {
@@ -17,6 +21,20 @@ body {
 code {
   font-family: source-code-pro, Menlo, Monaco, Consolas, "Courier New",
     monospace;
+}
+
+.nav-logo {
+  filter: invert(1);
+}
+
+.nav-link {
+  text-decoration: none;
+  color: white;
+}
+
+section {
+  color: white;
+  margin: 20em;
 }
 
 .all-container {
