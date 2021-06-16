@@ -1,7 +1,7 @@
 @import url("https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@100;300;400;500;700;900&display=swap");
 
 * {
-  border: 1px solid yellow;
+  /* border: 1px solid yellow; */
   /* margin: 10px; */
 }
 
@@ -11,55 +11,12 @@ html {
 
 body {
   margin: 0;
-  height: 100vh;
   font-family: "Noto Sans KR", -apple-system, BlinkMacSystemFont, "Segoe UI",
     "Roboto", "Oxygen", "Ubuntu", "Cantarell", "Fira Sans", "Droid Sans",
     "Helvetica Neue", sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
 }
-
-nav {
-  position: fixed;
-}
-
-.navLogo {
-  filter: invert(1);
-}
-
-.navLink {
-  /* text-decoration: none; */
-  color: white;
-}
-.navLink:hover {
-  text-decoration: none;
-  color: #155be8;
-}
-.nav-stories {
-  /* text-decoration: none; */
-  color: #155be8;
-}
-.nav-stories:hover {
-  text-decoration: none;
-}
-
-section {
-  color: white;
-  padding: 50vh 0em;
-}
-
-h1 {
-  color: white;
-  font-size: xx-large;
-  font-weight: 700;
-  letter-spacing: -0.04em;
-  position: right;
-}
-
-h5 {
-  color: #ffffff;
-}
-
 .bg-image {
   position: fixed;
   top: 0;

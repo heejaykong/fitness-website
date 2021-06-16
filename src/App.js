@@ -1,5 +1,5 @@
 import React from 'react';
-// import '../src/index.css';
+import '../src/index.css';
 import 'bootstrap/dist/css/bootstrap.min.css';
 import { HashRouter, Switch, Route } from 'react-router-dom';
 import Navigator from './components/Navigator';
