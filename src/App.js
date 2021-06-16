@@ -1,4 +1,6 @@
 import React from 'react';
+// import '../src/index.css';
+import 'bootstrap/dist/css/bootstrap.min.css';
 import { HashRouter, Switch, Route } from 'react-router-dom';
 import Navigator from './components/Navigator';
 import Footer from './components/Footer';
@@ -9,15 +11,13 @@ function App() {
   return (
     <>
       <Navigator />
-      <div className='all-container'>
-        <HashRouter>
-          <Switch>
-            <Route path="/" exact={true} component={ Home }/>
-            <Route path="/stories" component={ Stories }/>
-          </Switch>
-        </HashRouter>
-      </div>
-      <Footer />
+      <HashRouter>
+        <Switch>
+          <Route path="/" exact={true} component={ Home }/>
+          <Route path="/stories" component={ Stories }/>
+        </Switch>
+      </HashRouter>
+      {/* <Footer /> */}
     </>
   );
 }
