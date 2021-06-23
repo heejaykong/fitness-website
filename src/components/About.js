@@ -1,12 +1,21 @@
 import React from 'react';
-import Media from 'react-bootstrap/Media'
-import BG_IMAGES from '../assets/images/bg/index.js';
+import styled from 'styled-components/macro';
 // 어바웃은 텍스트/사진 위주가 될 것
+
+const Wrapper = styled.div`
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 40em;
+  background-color: grey;
+`;
 
 function About() {
   return (
     <>
-      <span>about heyhey</span>
+      <Wrapper id="about">
+        <span>about</span>
+      </Wrapper>
     </>
   );
 }

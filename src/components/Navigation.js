@@ -81,6 +81,7 @@ const Nav = styled.nav`
   top: 0;
   padding: 0rem 3.125rem;
   background-color: transparent;
+  z-index: 10;
 `;
 const NavColumn = styled.div``;
 
@@ -98,6 +99,8 @@ const NavBtn = styled.li`
   }
 `;
 const NavLink = styled(Link)`
+  font-weight: 500;
+  transition: color 0.1s ease-in-out;
   &:hover {
     color: var(--blue);
   }

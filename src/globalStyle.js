@@ -2,8 +2,6 @@ import { createGlobalStyle } from 'styled-components/macro';
 
 // reset.css
 const GlobalStyle = createGlobalStyle`
-  @import url("https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@100;300;400;500;700;900&display=swap");
-
   html, body, div, span, applet, object, iframe,
   h1, h2, h3, h4, h5, h6, p, blockquote, pre,
   a, abbr, acronym, address, big, cite, code,
@@ -58,7 +56,8 @@ const GlobalStyle = createGlobalStyle`
       "Helvetica Neue", sans-serif;
     -webkit-font-smoothing: antialiased;
     -moz-osx-font-smoothing: grayscale;
-    background-color: black;
+
+    background-color: #08171c;
     color: white;
     height: 1000vh;
   }
