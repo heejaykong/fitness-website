@@ -5,8 +5,9 @@ import styled from "styled-components/macro";
 const Wrapper = styled.div`
   display: flex;
   position: relative;
+  width: 100%;
   height: 40em;
-  background-color: var(--blue);
+  background-color: black;
 `;
 const Column = styled.div`
   display: flex;
@@ -18,11 +19,12 @@ const Column = styled.div`
   &:first-child {
     background-image: url(${IMG});
     background-repeat: no-repeat;
+    /* background-size: cover; */
     width: inherit;
     background-size: 100% auto;
   }
   &:last-child {
-    /* background-color: var(--blue); */
+    background-color: var(--blue);
     flex: 1.3;
   }
 `;
@@ -49,22 +51,29 @@ const CopyWrapper = styled.div`
 const MainCopy = styled.h1`
   font-size: 2.4rem;
   font-weight: 700;
-  line-height: 120%;
   letter-spacing: -0.025rem;
   margin-bottom: 0.3rem;
 `;
 const SubCopy = styled.h4`
   font-size: 1.4rem;
   font-weight: 600;
-  line-height: 115%;
   letter-spacing: -0.025rem;
 `;
-
+// const Img = styled.img`
+//   /* width: 100%; */
+//   height: 100%;
+//   flex: 1;
+//   /* background-size: repeat; */
+// `;
+// Img.defaultProps = {
+//   src: IMG,
+// };
 function Intro() {
   return (
     <>
       <Wrapper id="intro">
         <Column>
+        {/* <Img></Img> */}
           {/* 둥둥 뜨는 로고 */}
         </Column>
         <Column>

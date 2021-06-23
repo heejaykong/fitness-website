@@ -59,6 +59,7 @@ const GlobalStyle = createGlobalStyle`
 
     background-color: #08171c;
     color: white;
+    line-height: 1.5;
     height: 1000vh;
   }
   a {
