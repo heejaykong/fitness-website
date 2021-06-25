@@ -2,7 +2,6 @@ import React from "react";
 import styled from "styled-components/macro";
 import { HashRouter } from "react-router-dom";
 import { HashLink as Link } from "react-router-hash-link";
-
 const Nav = styled.nav`
   display: flex;
   flex-direction: column;
@@ -35,19 +34,24 @@ const NavLink = styled(Link)`
     color: var(--blue);
   }
 `;
-
+const clickHandler = (e) =>{
+  console.log(e);
+}
 function MobileNavigation() {
   return (
     <>
       <Nav>
         <HashRouter>
-          <NavColumn><NavLink to="/#top">logo</NavLink></NavColumn>
+          <NavColumn>
+            <NavLink to="/#top">logo</NavLink>
+            <div onClick={clickHandler}>toggle me</div>
+          </NavColumn>
           <NavColumn>
             <NavList>
-              <NavBtn><NavLink to="/#about">about</NavLink></NavBtn>
-              <NavBtn><NavLink to="/#price">price</NavLink></NavBtn>
-              <NavBtn><NavLink to="/#contact">contact</NavLink></NavBtn>
-              <NavBtn><NavLink to="/stories">stories</NavLink></NavBtn>
+              <NavBtn><NavLink to="/#about">About</NavLink></NavBtn>
+              <NavBtn><NavLink to="/#price">Price</NavLink></NavBtn>
+              <NavBtn><NavLink to="/#contact">Contact</NavLink></NavBtn>
+              <NavBtn><NavLink to="/stories">Stories</NavLink></NavBtn>
             </NavList>
           </NavColumn>
         </HashRouter>

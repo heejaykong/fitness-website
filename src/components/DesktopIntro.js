@@ -1,13 +1,11 @@
 import React from "react";
 import IMG from "../assets/images/bg/운동인.png";
 import styled from "styled-components/macro";
-
 const Wrapper = styled.div`
   display: flex;
   position: relative;
   width: 100%;
   height: 40em;
-  background-color: black;
 `;
 const Column = styled.div`
   display: flex;
@@ -17,7 +15,22 @@ const Column = styled.div`
   height: inherit;
   flex: 1;
   &:first-child {
-    background-image: url(${IMG});
+    background:
+      linear-gradient(
+        90deg,
+        rgba(18, 18, 18, 0.5) 0%,
+        rgba(18, 18, 18, 0) 50%
+      ),
+      linear-gradient(
+        rgba(18, 18, 18, 0.5) 0%,
+        rgba(18, 18, 18, 0) 21.11%
+      ),
+      linear-gradient(
+        rgba(18, 18, 18, 0) 50%,
+        rgba(18, 18, 18, 0.5) 100%
+      ), url(${IMG})
+    ;
+    /* background-image: url(${IMG}); */
     background-repeat: no-repeat;
     /* background-size: cover; */
     width: inherit;
@@ -68,7 +81,7 @@ const SubCopy = styled.h4`
 // Img.defaultProps = {
 //   src: IMG,
 // };
-function Intro() {
+function DesktopIntro() {
   return (
     <>
       <Wrapper id="intro">
@@ -94,4 +107,4 @@ function Intro() {
   );
 }
 
-export default Intro;
+export default DesktopIntro;
