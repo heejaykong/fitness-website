@@ -5,10 +5,11 @@ import { HashLink as Link } from "react-router-hash-link";
 const Nav = styled.nav`
   display: flex;
   flex-direction: column;
-  width: 100%;
   position: fixed;
+  width: 100%;
   top: 0;
   box-sizing: border-box;
+  /* height: ; */
   padding: 2rem 0rem;
   padding-left: 2rem;
   z-index: 10;

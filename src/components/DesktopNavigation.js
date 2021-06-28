@@ -9,12 +9,13 @@ import { HashLink as Link } from "react-router-hash-link";
 // stories 페이지는(브랜드스토리가 들어가는) 따로 페이지로 들어가질 예정
 const Nav = styled.nav`
   display: flex;
+  /* flex-direction: ; */
   align-items: center;
   position: fixed;
   width: 100%;
+  top: 0;
   box-sizing: border-box;
   height: 4rem;
-  top: 0;
   padding: 0rem 3.125rem;
   background-color: transparent;
   z-index: 10;
@@ -40,7 +41,7 @@ const NavLink = styled(Link)`
   }
 `;
 
-function Navigation() {
+function DesktopNavigation() {
   return (
     <>
       <Nav>
@@ -73,4 +74,4 @@ function Navigation() {
   );
 }
 
-export default Navigation;
+export default DesktopNavigation;

@@ -12,6 +12,7 @@ const Column = styled.div`
   flex-direction: column;
   justify-content: center;
   align-items: flex-start;
+  align-items: center;
   height: inherit;
   flex: 1;
   &:first-child {
@@ -32,45 +33,48 @@ const Column = styled.div`
     ;
     /* background-image: url(${IMG}); */
     background-repeat: no-repeat;
-    /* background-size: cover; */
-    width: inherit;
-    background-size: 100% auto;
+    background-size: cover;
+    /* background-size: 100% auto; */
   }
   &:last-child {
-    background-color: var(--blue);
+    background:
+      linear-gradient(
+        rgba(18, 18, 18, 0.5) 0%,
+        rgba(18, 18, 18, 0) 21.11%
+      ),
+      linear-gradient(
+        rgba(18, 18, 18, 0) 50%,
+        rgba(18, 18, 18, 0.5) 100%
+      ), var(--blue);
     flex: 1.3;
   }
 `;
-// const GradientLayer = styled.div`
-//   background:
-//     /* linear-gradient(
-//       90deg,
-//       rgba(18, 18, 18, 0.5) 0%,
-//       rgba(18, 18, 18, 0) 50%
-//     ), */
-//     linear-gradient(
-//       rgba(18, 18, 18, 0.5) 0%,
-//       rgba(18, 18, 18, 0) 21.11%
-//     ),
-//     linear-gradient(
-//       rgba(18, 18, 18, 0) 50%,
-//       rgba(18, 18, 18, 0.5) 100%
-//     );
-// `;
 const CopyWrapper = styled.div`
-  margin-left: 3rem;
-  margin-bottom: 1.5rem;
+  /* margin-left: 3rem; */
+  margin-bottom: 3rem;
 `;
 const MainCopy = styled.h1`
-  font-size: 2.4rem;
+  /* font-size: 2.4rem; */
+  font-size: clamp(1.4rem, 3vw, 2.8rem);
   font-weight: 700;
   letter-spacing: -0.025rem;
   margin-bottom: 0.3rem;
+  -webkit-transition: font-size 0.5s ease-in-out;
+  -moz-transition: font-size 0.5s ease-in-out;
+  -ms-transition: font-size 0.5s ease-in-out;
+  -o-transition: font-size 0.5s ease-in-out;
+  transition: font-size 0.5s ease-in-out;
 `;
 const SubCopy = styled.h4`
-  font-size: 1.4rem;
+  /* font-size: 1.4rem; */
+  font-size: clamp(1rem, 1.8vw, 1.8rem);
   font-weight: 600;
   letter-spacing: -0.025rem;
+  -webkit-transition: font-size 0.5s ease-in-out;
+  -moz-transition: font-size 0.5s ease-in-out;
+  -ms-transition: font-size 0.5s ease-in-out;
+  -o-transition: font-size 0.5s ease-in-out;
+  transition: font-size 0.5s ease-in-out;
 `;
 // const Img = styled.img`
 //   /* width: 100%; */
@@ -82,6 +86,7 @@ const SubCopy = styled.h4`
 //   src: IMG,
 // };
 function DesktopIntro() {
+  // 메뉴 토글이나 만들고 디테일한 intro 반응형은 나중에
   return (
     <>
       <Wrapper id="intro">

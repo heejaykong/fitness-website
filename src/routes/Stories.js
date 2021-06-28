@@ -1,4 +1,5 @@
-import React from 'react';
+import React from "react";
+import image from "../assets/images/bg/4.jpg"
 // import styled from 'styled-components/macro';
 // 스토리는 텍스트/사진 위주가 될 것
 // 웹칼럽처럼 아카이빙하는 용도로 사용할 예정
@@ -7,7 +8,9 @@ import React from 'react';
 function Stories() {
   return (
     <>
-    <div>story</div>
+    <div>
+      <img src={image} alt="asdf" style={{width:"100%", height:"auto"}}/>
+    </div>
     </>
   );
 }

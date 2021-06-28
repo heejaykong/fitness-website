@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React from "react";
 import DesktopIntro from '../components/DesktopIntro';
 import MobileIntro from '../components/MobileIntro';
 import About from '../components/About';
@@ -9,10 +9,7 @@ import Contact from '../components/Contact';
 // 각 섹션들이 나뉘어지는건 계단 모양 길다란 선 그거 사용하기
 // 반응형 참고: https://goshakkk.name/different-mobile-desktop-tablet-layouts-react/
 
-function Home() {
-  const [width, setWidth] = useState(window.innerWidth);
-  const isMobile = width <= 1000;
-  window.addEventListener('resize', () => setWidth(window.innerWidth));
+function Home({isMobile}) {
   return (
     <>
       {isMobile ? <MobileIntro /> : <DesktopIntro />}
