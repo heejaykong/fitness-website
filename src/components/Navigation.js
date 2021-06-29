@@ -2,11 +2,13 @@ import React from "react";
 import styled from "styled-components/macro";
 import { HashRouter } from "react-router-dom";
 import { HashLink as Link } from "react-router-hash-link";
-// import logo from '../assets/logo/safe-gym-logo.png';
 // Hover했을때 메뉴 파란색으로 변하기(완)
 // SPA인데, 네비게이터를 눌렀을때 그 섹션에 엥커되게끔 하는걸로(stories 빼고)(완)
-// stories를 따로 맨 우측에 파란색으로 빼는 걸로
-// stories 페이지는(브랜드스토리가 들어가는) 따로 페이지로 들어가질 예정
+// stories를 따로 맨 우측에 파란색으로 빼는 걸로(완)
+// stories 페이지는(브랜드스토리가 들어가는) 따로 페이지로 들어가질 예정(완)
+const $ = (selector) => document.querySelector(selector);
+const BREAKPOINT = 935;
+
 const Nav = styled.nav`
   display: flex;
   flex-direction: row;
@@ -20,31 +22,34 @@ const Nav = styled.nav`
   background-color: transparent;
   font-size: 0.9rem;
   z-index: 10;
-`;
-const MobileNav = styled(Nav)`
-  flex-direction: column;
-  align-items: flex-start;
-  padding: 2rem 0rem;
-  padding-left: 2rem;
-  font-size: 1.1rem;
+  @media (max-width: ${BREAKPOINT}px) {
+    flex-direction: column;
+    align-items: flex-start;
+    padding: 2rem 0rem;
+    padding-left: 2rem;
+    font-size: 1.1rem;
+  }
 `;
 const NavColumn = styled.div`
 `;
 const NavList = styled.ul`
   display: flex;
   margin-left: 2.5rem;
-`;
-const MobileNavList = styled(NavList)`
-  flex-direction: column;
-  margin-left: 0rem;
-  margin-top: 1rem;
-  visibility: visible;
-  opacity: 1;
-  transition: visibility 0.2s, opacity 0.2s ease-in-out;
-  &.hidden {
-    /* display: none; */
-    opacity: 0;
+  @media (max-width: ${BREAKPOINT}px) {
+    flex-direction: column;
+    margin-left: 0rem;
+    margin-top: 1rem;
     visibility: hidden;
+    opacity: 0;
+    transition: visibility 0.2s, opacity 0.2s ease-in-out;
+    /* height: 0;
+    overflow: hidden;
+    transition: height 0.2s ease-in-out; */
+    &.shown {
+      visibility: visible;
+      opacity: 1;
+      /* height: 50px; */
+    }
   }
 `;
 const NavBtn = styled.li`
@@ -54,11 +59,11 @@ const NavBtn = styled.li`
   &:last-child {
     color: var(--blue);
   }
-`;
-const MobileNavBtn = styled(NavBtn)`
-  & + & {
-    margin-left: 0rem;
-    margin-top: 0.5rem;
+  @media (max-width: ${BREAKPOINT}px) {
+    & + & {
+      margin-left: 0rem;
+      margin-top: 0.5rem;
+    }
   }
 `;
 const NavLink = styled(Link)`
@@ -72,47 +77,45 @@ const NavLink = styled(Link)`
     color: var(--blue);
   }
 `;
-const clickHandler = () =>{
-  document.querySelector(".NavList").classList.toggle("hidden");
-}
-function Navigation({isMobile}) {
-  if (isMobile) {
-    return(
-      <MobileNav>
-        <HashRouter>
-          <NavColumn>
-            <NavLink to="/#top" onClick={clickHandler}>logo</NavLink>
-          </NavColumn>
-          <NavColumn>
-            <MobileNavList className="NavList hidden">
-              <MobileNavBtn><NavLink to="/#about">회사소개</NavLink></MobileNavBtn>
-              <MobileNavBtn><NavLink to="/#price">수강료</NavLink></MobileNavBtn>
-              <MobileNavBtn><NavLink to="/#contact">연락처</NavLink></MobileNavBtn>
-              <MobileNavBtn><NavLink to="/stories">이야기</NavLink></MobileNavBtn>
-            </MobileNavList>
-          </NavColumn>
-        </HashRouter>
-      </MobileNav>
-    );
-  } else {
-    return(
-      <Nav>
-        <HashRouter>
-          <NavColumn>
-            <NavLink to="/#top">logo</NavLink>
-          </NavColumn>
-          <NavColumn>
-            <NavList>
-              <NavBtn><NavLink to="/#about">회사소개</NavLink></NavBtn>
-              <NavBtn><NavLink to="/#price">수강료</NavLink></NavBtn>
-              <NavBtn><NavLink to="/#contact">연락처</NavLink></NavBtn>
-              <NavBtn><NavLink to="/stories">이야기</NavLink></NavBtn>
-            </NavList>
-          </NavColumn>
-        </HashRouter>
-      </Nav>
-    );
+const Arrow = styled.span`
+  @media (min-width: ${BREAKPOINT}px){
+    display: none;
   }
+  @media (max-width: ${BREAKPOINT}px){
+    display: inline-block;
+    margin: 0 0.5rem;
+    transition: transform 0.3s ease-in-out;
+    &.rotated {
+      transform: rotate(-180deg);
+    }
+    &:hover {
+      cursor: pointer;
+    }
+  }
+`;
+const clickHandler = () => {
+  $(".NavList").classList.toggle("shown");
+  $(".Arrow").classList.toggle("rotated");
+}
+function Navigation() {
+  return(
+    <Nav>
+      <HashRouter>
+        <NavColumn>
+          <NavLink to="/#top">logo</NavLink>
+          <Arrow className="Arrow" onClick={clickHandler}>🔽</Arrow>
+        </NavColumn>
+        <NavColumn>
+          <NavList className="NavList">
+            <NavBtn><NavLink to="/#about">회사소개</NavLink></NavBtn>
+            <NavBtn><NavLink to="/#price">수강료</NavLink></NavBtn>
+            <NavBtn><NavLink to="/#contact">연락처</NavLink></NavBtn>
+            <NavBtn><NavLink to="/stories">이야기</NavLink></NavBtn>
+          </NavList>
+        </NavColumn>
+      </HashRouter>
+    </Nav>
+  );
 }
 
 export default Navigation;

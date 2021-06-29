@@ -31,7 +31,6 @@ const Column = styled.div`
         rgba(18, 18, 18, 0.5) 100%
       ), url(${IMG})
     ;
-    /* background-image: url(${IMG}); */
     background-repeat: no-repeat;
     background-size: cover;
     /* background-size: 100% auto; */
@@ -76,22 +75,11 @@ const SubCopy = styled.h4`
   -o-transition: font-size 0.5s ease-in-out;
   transition: font-size 0.5s ease-in-out;
 `;
-// const Img = styled.img`
-//   /* width: 100%; */
-//   height: 100%;
-//   flex: 1;
-//   /* background-size: repeat; */
-// `;
-// Img.defaultProps = {
-//   src: IMG,
-// };
 function DesktopIntro() {
-  // 메뉴 토글이나 만들고 디테일한 intro 반응형은 나중에
   return (
     <>
       <Wrapper id="intro">
         <Column>
-        {/* <Img></Img> */}
           {/* 둥둥 뜨는 로고 */}
         </Column>
         <Column>
