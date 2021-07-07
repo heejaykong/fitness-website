@@ -2,6 +2,7 @@ import React from "react";
 import styled from "styled-components/macro";
 import { HashRouter } from "react-router-dom";
 import { HashLink as Link } from "react-router-hash-link";
+import LOGO from "../assets/logos/SAFE-GYM_SYMBOL_black.png";
 // Hover했을때 메뉴 파란색으로 변하기(완)
 // SPA인데, 네비게이터를 눌렀을때 그 섹션에 엥커되게끔 하는걸로(stories 빼고)(완)
 // stories를 따로 맨 우측에 파란색으로 빼는 걸로(완)
@@ -17,9 +18,10 @@ const Nav = styled.nav`
   width: 100%;
   top: 0;
   box-sizing: border-box;
-  height: 4rem;
+  height: 4.5rem;
   padding: 0rem 3.125rem;
   background-color: transparent;
+  background-color: rgba(59,130,246,0.5);
   font-size: 0.9rem;
   z-index: 10;
   @media (max-width: ${BREAKPOINT}px) {
@@ -34,7 +36,8 @@ const NavColumn = styled.div`
 `;
 const NavList = styled.ul`
   display: flex;
-  margin-left: 2.5rem;
+  margin-left: 2rem;
+
   @media (max-width: ${BREAKPOINT}px) {
     flex-direction: column;
     margin-left: 0rem;
@@ -42,13 +45,10 @@ const NavList = styled.ul`
     visibility: hidden;
     opacity: 0;
     transition: visibility 0.2s, opacity 0.2s ease-in-out;
-    /* height: 0;
-    overflow: hidden;
-    transition: height 0.2s ease-in-out; */
+
     &.shown {
       visibility: visible;
       opacity: 1;
-      /* height: 50px; */
     }
   }
 `;
@@ -67,6 +67,9 @@ const NavBtn = styled.li`
   }
 `;
 const NavLink = styled(Link)`
+  display: flex;
+  justify-content: center;
+  align-items: center;
   font-weight: 500;
   -webkit-transition: color 0.1s ease-in-out;
   -moz-transition: color 0.1s ease-in-out;
@@ -97,12 +100,22 @@ const clickHandler = () => {
   $(".NavList").classList.toggle("shown");
   $(".Arrow").classList.toggle("rotated");
 }
+const Logo = styled.img`
+  width: 3rem;
+  filter: invert(1);
+`;
+Logo.defaultProps = {
+  src: LOGO,
+  alt: "logo"
+};
 function Navigation() {
   return(
     <Nav>
       <HashRouter>
         <NavColumn>
-          <NavLink to="/#top">logo</NavLink>
+          <NavLink to="/#top">
+            <Logo />
+          </NavLink>
           <Arrow className="Arrow" onClick={clickHandler}>🔽</Arrow>
         </NavColumn>
         <NavColumn>

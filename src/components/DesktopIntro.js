@@ -1,11 +1,31 @@
 import React from "react";
-import IMG from "../assets/images/bg/운동인.png";
+import IMG from "../assets/images/bg/2.jpeg";
+import SEP from "../assets/images/separators/Graphic motif_1.svg"
 import styled from "styled-components/macro";
 const Wrapper = styled.div`
   display: flex;
   position: relative;
   width: 100%;
   height: 40em;
+`;
+const GradientLayer = styled.div`
+  position: absolute;
+  background:
+    linear-gradient(
+      90deg,
+      rgba(18, 18, 18, 0.5) 0%,
+      rgba(18, 18, 18, 0) 50%
+    ),
+    linear-gradient(
+      rgba(18, 18, 18, 0.5) 0%,
+      rgba(18, 18, 18, 0) 21.11%
+    ),
+    linear-gradient(
+      rgba(18, 18, 18, 0) 50%,
+      rgba(18, 18, 18, 0.5) 100%
+    );
+  width: 100%;
+  height: 100%;
 `;
 const Column = styled.div`
   display: flex;
@@ -15,37 +35,15 @@ const Column = styled.div`
   align-items: center;
   height: inherit;
   flex: 1;
-  &:first-child {
-    background:
-      linear-gradient(
-        90deg,
-        rgba(18, 18, 18, 0.5) 0%,
-        rgba(18, 18, 18, 0) 50%
-      ),
-      linear-gradient(
-        rgba(18, 18, 18, 0.5) 0%,
-        rgba(18, 18, 18, 0) 21.11%
-      ),
-      linear-gradient(
-        rgba(18, 18, 18, 0) 50%,
-        rgba(18, 18, 18, 0.5) 100%
-      ), url(${IMG})
-    ;
+  &:nth-child(2) {
+    background: url(${IMG});
     background-repeat: no-repeat;
     background-size: cover;
-    /* background-size: 100% auto; */
+    background-position: center;
   }
-  &:last-child {
-    background:
-      linear-gradient(
-        rgba(18, 18, 18, 0.5) 0%,
-        rgba(18, 18, 18, 0) 21.11%
-      ),
-      linear-gradient(
-        rgba(18, 18, 18, 0) 50%,
-        rgba(18, 18, 18, 0.5) 100%
-      ), var(--blue);
-    flex: 1.3;
+  &:nth-child(3) {
+    background-color: var(--blue);
+    flex: 1.25;
   }
 `;
 const CopyWrapper = styled.div`
@@ -75,10 +73,21 @@ const SubCopy = styled.h4`
   -o-transition: font-size 0.5s ease-in-out;
   transition: font-size 0.5s ease-in-out;
 `;
+const Separator = styled.img`
+  position: absolute;
+  top: 36.8rem;
+  width: 100%;
+  height: 100px;
+`;
+Separator.defaultProps = {
+  src: SEP,
+  alt: "divider"
+};
 function DesktopIntro() {
   return (
     <>
       <Wrapper id="intro">
+        <GradientLayer />
         <Column>
           {/* 둥둥 뜨는 로고 */}
         </Column>
@@ -89,12 +98,12 @@ function DesktopIntro() {
               안전하고 자유롭게 운동하세요.
             </MainCopy>
             <SubCopy>
-              IN A SAFE GYM,<br></br>YOU CAN CONCENTRATE ON YOU.<br></br>
-              EXERCISE SAFELY AND FREELY.
+              AT SAFE GYM,<br></br>YOU CAN FOCUS ON YOU.<br></br>
+              EXERCISE FREELY AND SAFELY.
             </SubCopy>
           </CopyWrapper>
         </Column>
-        {/* absolute로 들어갈 작대기 */}
+        <Separator/>
       </Wrapper>
     </>
   );

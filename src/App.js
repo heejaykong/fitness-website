@@ -1,8 +1,6 @@
 import React, { useState, useEffect } from "react";
 // import 'bootstrap/dist/css/bootstrap.min.css';
 import { HashRouter, Switch, Route } from "react-router-dom";
-// import DesktopNavigation from './components/DesktopNavigation';
-// import MobileNavigation from "./components/MobileNavigation";
 import Navigation from "./components/Navigation";
 import Home from "./routes/Home";
 import Stories from "./routes/Stories";
