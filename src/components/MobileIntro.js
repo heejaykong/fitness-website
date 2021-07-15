@@ -1,7 +1,7 @@
 import React from "react";
-import IMG from "../assets/images/bg/운동인.png";
-// import LOGO from "../assets/logo/safe-gym-logo.png";
+import IMG from "../assets/images/bg/2.jpeg";
 import styled from "styled-components/macro";
+import SEP from "../assets/images/separators/Graphic motif_1.svg"
 const Wrapper = styled.div`
   display: flex;
   flex-direction: column;
@@ -25,6 +25,7 @@ const Wrapper = styled.div`
   ;
   background-repeat: no-repeat;
   background-size: cover;
+  background-position: center;
 `;
 const CopyWrapper = styled.div`
   margin-top: 10%;
@@ -40,13 +41,13 @@ const SubCopy = styled.h4`
   font-weight: 600;
   letter-spacing: -0.025rem;
 `;
-// const Img = styled.img`
-//   width: 100px;
-//   filter: invert(1);
-// `;
-// Img.defaultProps = {
-//   src: LOGO
-// }
+const Separator = styled.img`
+  /* position: fixed; */
+`;
+Separator.defaultProps = {
+  src: SEP,
+  alt: "asdf"
+};
 function MobileIntro() {
   return (
     <>
@@ -64,6 +65,8 @@ function MobileIntro() {
           </SubCopy>
         </CopyWrapper>
       </Wrapper>
+      
+      <Separator/> {/*작대기*/}
     </>
   );
 }
