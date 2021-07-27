@@ -55,7 +55,6 @@ const MainCopy = styled.h1`
   font-size: clamp(1.4rem, 3vw, 2.8rem);
   font-weight: 700;
   letter-spacing: -0.025rem;
-  margin-bottom: 0.3rem;
   -webkit-transition: font-size 0.5s ease-in-out;
   -moz-transition: font-size 0.5s ease-in-out;
   -ms-transition: font-size 0.5s ease-in-out;
@@ -72,6 +71,10 @@ const SubCopy = styled.h4`
   -ms-transition: font-size 0.5s ease-in-out;
   -o-transition: font-size 0.5s ease-in-out;
   transition: font-size 0.5s ease-in-out;
+`;
+const EngCopy = styled(SubCopy)`
+  font-size: clamp(0.5rem, 1vw, 1rem);
+  text-transform: uppercase;
 `;
 const Separator = styled.img`
   position: absolute;
@@ -94,13 +97,15 @@ function DesktopIntro() {
         <Column>
           <CopyWrapper>
             <MainCopy>
-              세이프짐에서 당신은<br></br>당신에게 집중할 수 있습니다.<br></br>
-              안전하고 자유롭게 운동하세요.
+              당신을 건강하게,<br/>더 많은 여성을 건강하게
             </MainCopy>
             <SubCopy>
-              AT SAFE GYM,<br></br>YOU CAN FOCUS ON YOU.<br></br>
-              EXERCISE FREELY AND SAFELY.
+              세이프짐에서 당신은 당신에게 집중할 수 있습니다.<br></br>
+              안전하고 자유롭게 운동하세요.
             </SubCopy>
+            <EngCopy>
+              at safe gym, you can focus on you. exercise freely and safely.
+            </EngCopy>
           </CopyWrapper>
         </Column>
         <Separator/>

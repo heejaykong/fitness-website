@@ -2,7 +2,6 @@ import React from "react";
 import styled from "styled-components/macro";
 import { HashRouter } from "react-router-dom";
 import { HashLink as Link } from "react-router-hash-link";
-// import logo from '../assets/logo/safe-gym-logo.png';
 // Hover했을때 메뉴 파란색으로 변하기(완)
 // SPA인데, 네비게이터를 눌렀을때 그 섹션에 엥커되게끔 하는걸로(stories 빼고)(완)
 // stories를 따로 맨 우측에 파란색으로 빼는 걸로
