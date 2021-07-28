@@ -1,4 +1,4 @@
-import { createGlobalStyle } from 'styled-components/macro';
+import { createGlobalStyle } from "styled-components/macro";
 
 // reset.css
 const GlobalStyle = createGlobalStyle`
@@ -47,6 +47,9 @@ const GlobalStyle = createGlobalStyle`
   }
 
   /* 여기부턴 커스텀 */
+  * {
+    box-sizing: border-box;
+  }
   html {
     scroll-behavior: smooth;
   }
@@ -57,19 +60,14 @@ const GlobalStyle = createGlobalStyle`
     -webkit-font-smoothing: antialiased;
     -moz-osx-font-smoothing: grayscale;
 
-    background-color: #08171c;
-    color: white;
+    background-color: ${(props) => props.theme.black};
+    color: ${(props) => props.theme.white};
     line-height: 1.5;
     height: 1000vh;
   }
   a {
     color: inherit;
     text-decoration: none;
-  }
-
-  /* variable.css */
-  :root {
-    --blue: #155be8;
   }
 `;
 

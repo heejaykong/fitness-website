@@ -1,29 +1,25 @@
 import React from "react";
 import IMG from "../assets/images/bg/2.jpeg";
-import SEP from "../assets/images/separators/Graphic motif_1.svg"
+import SEP from "../assets/images/separators/Graphic motif_1.svg";
 import styled from "styled-components/macro";
+// Desktop
 const Wrapper = styled.div`
   display: flex;
+  justify-content: center;
+  align-items: center;
   position: relative;
   width: 100%;
   height: 40em;
 `;
 const GradientLayer = styled.div`
   position: absolute;
-  background:
-    linear-gradient(
+  background: linear-gradient(
       90deg,
       rgba(18, 18, 18, 0.5) 0%,
       rgba(18, 18, 18, 0) 50%
     ),
-    linear-gradient(
-      rgba(18, 18, 18, 0.5) 0%,
-      rgba(18, 18, 18, 0) 21.11%
-    ),
-    linear-gradient(
-      rgba(18, 18, 18, 0) 50%,
-      rgba(18, 18, 18, 0.5) 100%
-    );
+    linear-gradient(rgba(18, 18, 18, 0.5) 0%, rgba(18, 18, 18, 0) 21.11%),
+    linear-gradient(rgba(18, 18, 18, 0) 50%, rgba(18, 18, 18, 0.5) 100%);
   width: 100%;
   height: 100%;
 `;
@@ -42,7 +38,7 @@ const Column = styled.div`
     background-position: center;
   }
   &:nth-child(3) {
-    background-color: var(--blue);
+    background-color: ${(props) => props.theme.blue};
     flex: 1.25;
   }
 `;
@@ -52,7 +48,7 @@ const CopyWrapper = styled.div`
 `;
 const MainCopy = styled.h1`
   /* font-size: 2.4rem; */
-  font-size: clamp(1.4rem, 3vw, 2.8rem);
+  font-size: clamp(1.4rem, 3.5vw, 2.8rem);
   font-weight: 700;
   letter-spacing: -0.025rem;
   -webkit-transition: font-size 0.5s ease-in-out;
@@ -84,20 +80,34 @@ const Separator = styled.img`
 `;
 Separator.defaultProps = {
   src: SEP,
-  alt: "divider"
+  alt: "divider",
 };
-function DesktopIntro() {
-  return (
-    <>
-      <Wrapper id="intro">
-        <GradientLayer />
-        <Column>
-          {/* 둥둥 뜨는 로고 */}
-        </Column>
-        <Column>
+
+// Mobile
+const MobileWrapper = styled(Wrapper)`
+  background: linear-gradient(
+      90deg,
+      rgba(18, 18, 18, 0.5) 0%,
+      rgba(18, 18, 18, 0) 50%
+    ),
+    linear-gradient(rgba(18, 18, 18, 0.5) 0%, rgba(18, 18, 18, 0) 21.11%),
+    linear-gradient(rgba(18, 18, 18, 0) 50%, rgba(18, 18, 18, 0.5) 100%),
+    url(${IMG});
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-position: center;
+`;
+function Intro({ isMobile }) {
+  if (isMobile) {
+    return (
+      <>
+        <MobileWrapper id="intro">
+          {/* logo */}
+          {/* <Img/> */}
           <CopyWrapper>
             <MainCopy>
-              당신을 건강하게,<br/>더 많은 여성을 건강하게
+              당신을 건강하게,
+              <br />더 많은 여성을 건강하게
             </MainCopy>
             <SubCopy>
               세이프짐에서 당신은 당신에게 집중할 수 있습니다.<br></br>
@@ -107,11 +117,36 @@ function DesktopIntro() {
               at safe gym, you can focus on you. exercise freely and safely.
             </EngCopy>
           </CopyWrapper>
-        </Column>
-        <Separator/>
-      </Wrapper>
-    </>
-  );
+        </MobileWrapper>
+        <Separator /> {/*작대기*/}
+      </>
+    );
+  } else {
+    return (
+      <>
+        <Wrapper id="intro">
+          <GradientLayer />
+          <Column>{/* 둥둥 뜨는 로고 */}</Column>
+          <Column>
+            <CopyWrapper>
+              <MainCopy>
+                당신을 건강하게,
+                <br />더 많은 여성을 건강하게
+              </MainCopy>
+              <SubCopy>
+                세이프짐에서 당신은 당신에게 집중할 수 있습니다.<br></br>
+                안전하고 자유롭게 운동하세요.
+              </SubCopy>
+              <EngCopy>
+                at safe gym, you can focus on you. exercise freely and safely.
+              </EngCopy>
+            </CopyWrapper>
+          </Column>
+          <Separator />
+        </Wrapper>
+      </>
+    );
+  }
 }
 
-export default DesktopIntro;
+export default Intro;
