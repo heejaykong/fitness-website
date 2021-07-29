@@ -1,13 +1,7 @@
 import React from "react";
 import styled from "styled-components/macro";
+import Wrapper from "../css/my-styled-components/Wrapper";
 
-const Wrapper = styled.div`
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  height: 40em;
-  background-color: ${(props) => props.theme.blue};
-`;
 const Row = styled.div`
   display: flex;
   justify-content: space-around;
@@ -40,51 +34,54 @@ function Price() {
   return (
     <>
       <Wrapper id="price">
-        <Row>
-          <Column>
-            <h1>세이프짐 수업료</h1>
-          </Column>
-        </Row>
-        <Row>
-          <Column>
-            <h1>personal training</h1>
-            <span>10 세션</span>
-          </Column>
-          <Column>
-            <span>1회 / 99,000</span>
-            <span>990,000</span>
-          </Column>
-        </Row>
-        <Row>
-          <Column>
-            <h1>personal training</h1>
-            <span>20 세션</span>
-          </Column>
-          <Column>
-            <span>1회 / 88,000</span>
-            <span>1,760,000</span>
-          </Column>
-        </Row>
-        <Row>
-          <Column>
-            <h1>personal training</h1>
-            <span>30 세션</span>
-          </Column>
-          <Column>
-            <span>1회 / 77,000</span>
-            <span>2,310,000</span>
-          </Column>
-        </Row>
-        <Row>
-          <Column>
-            <h1>personal training</h1>
-            <span>40 세션</span>
-          </Column>
-          <Column>
-            <span>1회 / 71,500</span>
-            <span>3,575,000</span>
-          </Column>
-        </Row>
+        <div>
+
+          <Row>
+            <Column>
+              <h1>세이프짐 수업료</h1>
+            </Column>
+          </Row>
+          <Row>
+            <Column>
+              <h1>personal training</h1>
+              <span>10 세션</span>
+            </Column>
+            <Column>
+              <span>1회 / 99,000</span>
+              <span>990,000</span>
+            </Column>
+          </Row>
+          <Row>
+            <Column>
+              <h1>personal training</h1>
+              <span>20 세션</span>
+            </Column>
+            <Column>
+              <span>1회 / 88,000</span>
+              <span>1,760,000</span>
+            </Column>
+          </Row>
+          <Row>
+            <Column>
+              <h1>personal training</h1>
+              <span>30 세션</span>
+            </Column>
+            <Column>
+              <span>1회 / 77,000</span>
+              <span>2,310,000</span>
+            </Column>
+          </Row>
+          <Row>
+            <Column>
+              <h1>personal training</h1>
+              <span>40 세션</span>
+            </Column>
+            <Column>
+              <span>1회 / 71,500</span>
+              <span>3,575,000</span>
+            </Column>
+          </Row>
+        </div>
       </Wrapper>
     </>
   );

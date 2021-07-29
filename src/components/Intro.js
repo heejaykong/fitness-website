@@ -2,15 +2,9 @@ import React from "react";
 import IMG from "../assets/images/bg/2.jpeg";
 import SEP from "../assets/images/separators/Graphic motif_1.svg";
 import styled from "styled-components/macro";
+import Wrapper from "../css/my-styled-components/Wrapper";
+import {MainCopy, SubCopy, EngCopy} from "../css/my-styled-components/Copy";
 // Desktop
-const Wrapper = styled.div`
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  position: relative;
-  width: 100%;
-  height: 40em;
-`;
 const GradientLayer = styled.div`
   position: absolute;
   background: linear-gradient(
@@ -45,32 +39,6 @@ const Column = styled.div`
 const CopyWrapper = styled.div`
   /* margin-left: 3rem; */
   margin-bottom: 3rem;
-`;
-const MainCopy = styled.h1`
-  /* font-size: 2.4rem; */
-  font-size: clamp(1.4rem, 3.5vw, 2.8rem);
-  font-weight: 700;
-  letter-spacing: -0.025rem;
-  -webkit-transition: font-size 0.5s ease-in-out;
-  -moz-transition: font-size 0.5s ease-in-out;
-  -ms-transition: font-size 0.5s ease-in-out;
-  -o-transition: font-size 0.5s ease-in-out;
-  transition: font-size 0.5s ease-in-out;
-`;
-const SubCopy = styled.h4`
-  /* font-size: 1.4rem; */
-  font-size: clamp(1rem, 1.8vw, 1.8rem);
-  font-weight: 600;
-  letter-spacing: -0.025rem;
-  -webkit-transition: font-size 0.5s ease-in-out;
-  -moz-transition: font-size 0.5s ease-in-out;
-  -ms-transition: font-size 0.5s ease-in-out;
-  -o-transition: font-size 0.5s ease-in-out;
-  transition: font-size 0.5s ease-in-out;
-`;
-const EngCopy = styled(SubCopy)`
-  font-size: clamp(0.5rem, 1vw, 1rem);
-  text-transform: uppercase;
 `;
 const Separator = styled.img`
   position: absolute;
