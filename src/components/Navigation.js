@@ -118,7 +118,7 @@ function Navigation() {
         <NavColumn>
           <NavList className="NavList">
             <NavBtn>
-              <NavLink to="/#about">회사소개</NavLink>
+              <NavLink to="/#about">SAFE GYM</NavLink>
             </NavBtn>
             <NavBtn>
               <NavLink to="/#price">수강료</NavLink>

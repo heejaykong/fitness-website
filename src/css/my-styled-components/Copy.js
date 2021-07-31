@@ -1,10 +1,14 @@
 import styled from "styled-components/macro";
 
 export const MainCopy = styled.h1`
-  /* font-size: 2.4rem; */
-  font-size: clamp(1.4rem, 3.5vw, 2.8rem);
-  font-weight: 700;
-  letter-spacing: -0.025rem;
+  font-size: clamp(1.8rem, 3vw, 2.5rem);
+  @media (max-width: ${(props) => props.theme.BREAKPOINT}px) {
+    /* mobile view */
+    font-size: clamp(1.3rem, 5vw, 2.5rem);
+  }
+  font-weight: 600;
+  letter-spacing: -0.1rem;
+  text-transform: uppercase;
   -webkit-transition: font-size 0.5s ease-in-out;
   -moz-transition: font-size 0.5s ease-in-out;
   -ms-transition: font-size 0.5s ease-in-out;
@@ -13,18 +17,25 @@ export const MainCopy = styled.h1`
 `;
 
 export const SubCopy = styled.h4`
-/* font-size: 1.4rem; */
-font-size: clamp(1rem, 1.8vw, 1.8rem);
-font-weight: 600;
-letter-spacing: -0.025rem;
--webkit-transition: font-size 0.5s ease-in-out;
--moz-transition: font-size 0.5s ease-in-out;
--ms-transition: font-size 0.5s ease-in-out;
--o-transition: font-size 0.5s ease-in-out;
-transition: font-size 0.5s ease-in-out;
+  font-size: clamp(1.4rem, 2.3vw, 1rem);
+  @media (max-width: ${(props) => props.theme.BREAKPOINT}px) {
+    /* mobile view */
+    font-size: clamp(1.2rem, 3.5vw, 2rem);
+  }
+  font-weight: 400;
+  letter-spacing: -0.025rem;
+  text-transform: uppercase;
+  -webkit-transition: font-size 0.5s ease-in-out;
+  -moz-transition: font-size 0.5s ease-in-out;
+  -ms-transition: font-size 0.5s ease-in-out;
+  -o-transition: font-size 0.5s ease-in-out;
+  transition: font-size 0.5s ease-in-out;
+
+  ${MainCopy} + & {
+    margin-top: 2rem;
+  }
 `;
 
 export const EngCopy = styled(SubCopy)`
-  font-size: clamp(0.5rem, 1vw, 1rem);
-  text-transform: uppercase;
+  font-size: clamp(1rem, 2vw, 2rem);
 `;

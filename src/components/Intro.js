@@ -55,8 +55,8 @@ Separator.defaultProps = {
 const MobileWrapper = styled(Wrapper)`
   background: linear-gradient(
       90deg,
-      rgba(18, 18, 18, 0.5) 0%,
-      rgba(18, 18, 18, 0) 50%
+      rgba(18, 18, 18, 0.3) 0%,
+      rgba(18, 18, 18, 0.3) 50%
     ),
     linear-gradient(rgba(18, 18, 18, 0.5) 0%, rgba(18, 18, 18, 0) 21.11%),
     linear-gradient(rgba(18, 18, 18, 0) 50%, rgba(18, 18, 18, 0.5) 100%),
@@ -73,17 +73,12 @@ function Intro({ isMobile }) {
           {/* logo */}
           {/* <Img/> */}
           <CopyWrapper>
-            <MainCopy>
-              당신을 건강하게,
-              <br />더 많은 여성을 건강하게
-            </MainCopy>
             <SubCopy>
-              세이프짐에서 당신은 당신에게 집중할 수 있습니다.<br></br>
-              안전하고 자유롭게 운동하세요.
+              empowering all women
             </SubCopy>
-            <EngCopy>
-              at safe gym, you can focus on you. exercise freely and safely.
-            </EngCopy>
+            <MainCopy>
+              당신을 건강하게, 더 많은 여성을 건강하게
+            </MainCopy>
           </CopyWrapper>
         </MobileWrapper>
         <Separator /> {/*작대기*/}
@@ -92,22 +87,17 @@ function Intro({ isMobile }) {
   } else {
     return (
       <>
-        <Wrapper id="intro">
+        <Wrapper relative id="intro">
           <GradientLayer />
           <Column>{/* 둥둥 뜨는 로고 */}</Column>
           <Column>
             <CopyWrapper>
-              <MainCopy>
-                당신을 건강하게,
-                <br />더 많은 여성을 건강하게
-              </MainCopy>
               <SubCopy>
-                세이프짐에서 당신은 당신에게 집중할 수 있습니다.<br></br>
-                안전하고 자유롭게 운동하세요.
+                empowering all women
               </SubCopy>
-              <EngCopy>
-                at safe gym, you can focus on you. exercise freely and safely.
-              </EngCopy>
+              <MainCopy>
+                당신을 건강하게, 더 많은 여성을 건강하게
+              </MainCopy>
             </CopyWrapper>
           </Column>
           <Separator />

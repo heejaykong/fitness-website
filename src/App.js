@@ -10,9 +10,9 @@ import GlobalStyle from "./css/globalStyle";
 import theme from "./css/theme";
 
 function App() {
-  const [width, setWidth] = useState(document.body.clientWidth);
+  const [width, setWidth] = useState(window.innerWidth);
   useEffect(() => {
-    const handleWindowSizeChange = () => setWidth(document.body.clientWidth);
+    const handleWindowSizeChange = () => setWidth(window.innerWidth);
     document.title = `${width}`;
     window.addEventListener("resize", handleWindowSizeChange);
     return () => {
