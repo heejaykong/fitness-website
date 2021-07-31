@@ -54,9 +54,6 @@ const NavBtn = styled.li`
   & + & {
     margin-left: 1.5rem;
   }
-  &:last-child {
-    color: ${(props) => props.theme.blue};
-  }
   @media (max-width: ${(props) => props.theme.BREAKPOINT}px) {
     & + & {
       margin-left: 0rem;
@@ -128,9 +125,6 @@ function Navigation() {
             </NavBtn>
             <NavBtn>
               <NavLink to="/#contact">연락처</NavLink>
-            </NavBtn>
-            <NavBtn>
-              <NavLink to="/stories">이야기</NavLink>
             </NavBtn>
           </NavList>
         </NavColumn>
