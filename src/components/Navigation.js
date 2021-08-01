@@ -2,7 +2,7 @@ import React from "react";
 import styled from "styled-components/macro";
 import { HashRouter } from "react-router-dom";
 import { HashLink as Link } from "react-router-hash-link";
-import LOGO from "../assets/logos/SAFE-GYM_SYMBOL_black.png";
+import LOGO from "../assets/logos/SAFE-GYM_LOGO_black.png";
 // Hover했을때 메뉴 파란색으로 변하기(완)
 // SPA인데, 네비게이터를 눌렀을때 그 섹션에 엥커되게끔 하는걸로(stories 빼고)(완)
 // stories를 따로 맨 우측에 파란색으로 빼는 걸로(완)
@@ -17,10 +17,10 @@ const Nav = styled.nav`
   width: 100%;
   top: 0;
   box-sizing: border-box;
-  height: 4.5rem;
+  height: 4rem;
   padding: 0rem 3.125rem;
-  background-color: transparent;
-  background-color: rgba(59, 130, 246, 0.5);
+  background-color: rgba(0, 0, 0, 0.3);
+  /* background-color: rgba(59, 130, 246, 0.5); */
   font-size: 0.9rem;
   z-index: 10;
   @media (max-width: ${(props) => props.theme.BREAKPOINT}px) {
@@ -96,7 +96,7 @@ const clickHandler = () => {
   $(".Arrow").classList.toggle("rotated");
 };
 const Logo = styled.img`
-  width: 3rem;
+  width: 2.4rem;
   filter: invert(1);
 `;
 Logo.defaultProps = {

@@ -22,8 +22,7 @@ export const SubCopy = styled.h4`
     /* mobile view */
     font-size: clamp(1.2rem, 3.5vw, 2rem);
   }
-  font-weight: 400;
-  letter-spacing: -0.025rem;
+  font-weight: 100;
   text-transform: uppercase;
   -webkit-transition: font-size 0.5s ease-in-out;
   -moz-transition: font-size 0.5s ease-in-out;
@@ -32,7 +31,7 @@ export const SubCopy = styled.h4`
   transition: font-size 0.5s ease-in-out;
 
   ${MainCopy} + & {
-    margin-top: 2rem;
+    margin-top: 1rem;
   }
 `;
 

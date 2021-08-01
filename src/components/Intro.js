@@ -1,44 +1,59 @@
 import React from "react";
-import IMG from "../assets/images/bg/2.jpeg";
+import IMG from "../assets/images/bg/6.jpeg";
 import SEP from "../assets/images/separators/Graphic motif_1.svg";
 import styled from "styled-components/macro";
 import Wrapper from "../css/my-styled-components/Wrapper";
-import {MainCopy, SubCopy, EngCopy} from "../css/my-styled-components/Copy";
+// import {MainCopy, SubCopy, EngCopy} from "../css/my-styled-components/Copy";
+import {MainCopy} from "../css/my-styled-components/Copy";
 // Desktop
 const GradientLayer = styled.div`
   position: absolute;
   background: linear-gradient(
       90deg,
       rgba(18, 18, 18, 0.5) 0%,
-      rgba(18, 18, 18, 0) 50%
+      rgba(18, 18, 18, 0.5) 50%
     ),
-    linear-gradient(rgba(18, 18, 18, 0.5) 0%, rgba(18, 18, 18, 0) 21.11%),
-    linear-gradient(rgba(18, 18, 18, 0) 50%, rgba(18, 18, 18, 0.5) 100%);
+    /* linear-gradient(rgba(18, 18, 18, 0.5) 0%, rgba(18, 18, 18, 0) 21.11%),
+    linear-gradient(rgba(18, 18, 18, 0) 50%, rgba(18, 18, 18, 0.5) 100%), */
+    url(${IMG});
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-position: center;
   width: 100%;
   height: 100%;
+  z-index: -1;
 `;
-const Column = styled.div`
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  align-items: flex-start;
-  align-items: center;
-  height: inherit;
-  flex: 1;
-  &:nth-child(2) {
-    background: url(${IMG});
-    background-repeat: no-repeat;
-    background-size: cover;
-    background-position: center;
-  }
-  &:nth-child(3) {
-    background-color: ${(props) => props.theme.blue};
-    flex: 1.25;
-  }
-`;
+// const Column = styled.div`
+//   display: flex;
+//   flex-direction: column;
+//   justify-content: center;
+//   align-items: flex-start;
+//   align-items: center;
+//   height: inherit;
+//   flex: 1;
+//   &:nth-child(1) {
+//     background: url(${IMG});
+//     background-repeat: no-repeat;
+//     background-size: cover;
+//     background-position: center;
+//   }
+//   &:nth-child(2) {
+//     background-color: ${(props) => props.theme.blue};
+//     flex: 1.25;
+//   }
+// `;
 const CopyWrapper = styled.div`
+  display:flex;
+  flex-direction:column;
+  justify-content:center;
+  align-items:center;
   /* margin-left: 3rem; */
   margin-bottom: 3rem;
+`;
+const IntroCopy = styled(MainCopy)`
+  font-weight: 100;
+  font-size: 2.7rem;
+  letter-spacing: 0rem;
 `;
 const Separator = styled.img`
   position: absolute;
@@ -55,8 +70,8 @@ Separator.defaultProps = {
 const MobileWrapper = styled(Wrapper)`
   background: linear-gradient(
       90deg,
-      rgba(18, 18, 18, 0.3) 0%,
-      rgba(18, 18, 18, 0.3) 50%
+      rgba(18, 18, 18, 0.5) 0%,
+      rgba(18, 18, 18, 0.5) 50%
     ),
     linear-gradient(rgba(18, 18, 18, 0.5) 0%, rgba(18, 18, 18, 0) 21.11%),
     linear-gradient(rgba(18, 18, 18, 0) 50%, rgba(18, 18, 18, 0.5) 100%),
@@ -73,9 +88,9 @@ function Intro({ isMobile }) {
           {/* logo */}
           {/* <Img/> */}
           <CopyWrapper>
-            <SubCopy>
+            <MainCopy style={{fontWeight:"600"}}>
               empowering all women
-            </SubCopy>
+            </MainCopy>
             <MainCopy>
               당신을 건강하게, 더 많은 여성을 건강하게
             </MainCopy>
@@ -87,19 +102,21 @@ function Intro({ isMobile }) {
   } else {
     return (
       <>
-        <Wrapper relative id="intro">
+        <Wrapper id="intro"
+        relative
+        backgroundColor="transparent">
           <GradientLayer />
-          <Column>{/* 둥둥 뜨는 로고 */}</Column>
-          <Column>
+          {/* <Column>둥둥 뜨는 로고</Column> */}
+          {/* <Column> */}
             <CopyWrapper>
-              <SubCopy>
+              <IntroCopy>
                 empowering all women
-              </SubCopy>
-              <MainCopy>
+              </IntroCopy>
+              <IntroCopy>
                 당신을 건강하게, 더 많은 여성을 건강하게
-              </MainCopy>
+              </IntroCopy>
             </CopyWrapper>
-          </Column>
+          {/* </Column> */}
           <Separator />
         </Wrapper>
       </>

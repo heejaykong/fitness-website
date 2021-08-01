@@ -49,6 +49,7 @@ const GlobalStyle = createGlobalStyle`
   /* 여기부턴 커스텀 */
   * {
     box-sizing: border-box;
+    letter-spacing: -0.025rem;
   }
   html {
     scroll-behavior: smooth;
@@ -62,8 +63,7 @@ const GlobalStyle = createGlobalStyle`
 
     background-color: ${(props) => props.theme.black};
     color: ${(props) => props.theme.white};
-    line-height: 1.5;
-    height: 1000vh;
+    line-height: 1.4;
   }
   a {
     color: inherit;

@@ -1,11 +1,11 @@
 import React from "react";
-import styled from "styled-components/macro";
+import styled, { keyframes } from "styled-components/macro";
 import LOGO from "../assets/logos/SAFE-GYM_SYMBOL_black.png";
-import IMG1 from "../assets/images/bg/1.jpeg";
-import IMG2 from "../assets/images/bg/4.jpeg";
+import IMG1 from "../assets/images/bg/5.jpeg";
+import IMG2 from "../assets/images/bg/3.jpeg";
 import SEP from "../assets/images/separators/Graphic motif_1.svg";
 import Wrapper from "../css/my-styled-components/Wrapper";
-import {MainCopy, SubCopy, EngCopy} from "../css/my-styled-components/Copy";
+import {MainCopy, SubCopy} from "../css/my-styled-components/Copy";
 
 const Logo = styled.img`
   width: 13rem;
@@ -15,8 +15,40 @@ Logo.defaultProps = {
   src: LOGO,
   alt: "logo",
 };
+const GradientLayer = styled.div`
+  position: absolute;
+  background: linear-gradient(
+      90deg,
+      rgba(18, 18, 18, 0.5) 0%,
+      rgba(18, 18, 18, 0.5) 50%
+    ),
+    /* linear-gradient(rgba(18, 18, 18, 0.5) 0%, rgba(18, 18, 18, 0) 21.11%),
+    linear-gradient(rgba(18, 18, 18, 0) 50%, rgba(18, 18, 18, 0.5) 100%), */
+    url(${IMG2});
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-position: center;
+  width: 100%;
+  height: 100%;
+  z-index: -1;
+`;
+const enter = keyframes`
+  from {
+    clip-path: inset(0 100% 0 0);
+  }
+  to {
+    clip-path: inset(0);
+  }
+`;
 const Separator = styled.img`
   width: 100%;
+  margin-bottom: 2rem;
+  opacity: 0;
+  transition: all 1s ease-in-out;
+  &:hover{
+    opacity:1;
+    animation: 2s ${enter} ease-in-out;
+  }
 `;
 Separator.defaultProps = {
   src: SEP,
@@ -33,39 +65,65 @@ const Circle = styled.div`
   display: flex;
   justify-content: center;
   align-items: center;
-  width: 10rem;
-  height: 10rem;
-  padding: 2rem;
-  margin: 1rem;
-  background-color: white;
+  width: clamp(10rem, 20vw, 20rem);
+  height: clamp(10rem, 20vw, 20rem);
+  margin: 0.3rem;
+  background-color: ${props=>props.theme.blue};
   border-radius: 50%;
   span {
-    color: ${props=>props.theme.blue};
-    font-size: 1.5rem;
-    font-weight: 600;
+    color: ${props=>props.theme.white};
+    font-size: 2rem;
+    font-weight: 900;
   }
 `;
-const Wrapper1 = styled(Wrapper)`
+const Container = styled.div`
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+`;
+const LogoMask = styled.div`
+  width: min(80vw, 30rem);
+  height: min(80vw, 30rem);
+  margin: -90px 0 0 0;
+
   background-image: url(${IMG1});
   background-repeat: no-repeat;
   background-size: cover;
   background-position: center;
-  
+
   mask-image: url(${LOGO});
-  mask-size: 30rem;
+  mask-size: contain;
   mask-repeat: no-repeat;
   mask-position: center;
 `;
+const CopyBox = styled.div`
+  position: absolute;
+  top: 22rem;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+`;
+const ValueMainCopy = styled(MainCopy)`
+  color: ${props=>props.theme.blue};
+`;
+
 function About() {
   return (
     <>
-      <Wrapper1 columnDir id="about">
-        {/* logo image 크게 */}
-        <MainCopy>장애물 없는 운동 공간</MainCopy>
-        <SubCopy>당신이 당신답게 운동할 수 있는</SubCopy>
-        <SubCopy>안전하고 자유로운 환경을 만듭니다.</SubCopy>
-      </Wrapper1>
-      <Wrapper columnDir>
+      <Wrapper columnDir id="about" height="43rem">
+        <Container>
+          <LogoMask />
+          <CopyBox>
+            <MainCopy>장애물 없는 운동 공간</MainCopy>
+            <SubCopy>당신이 당신답게 운동할 수 있는</SubCopy>
+            <SubCopy>안전하고 자유로운 환경을 만듭니다.</SubCopy>
+          </CopyBox>
+        </Container>
+      </Wrapper>
+      <Wrapper columnDir relative backgroundColor="transparent">
+        <GradientLayer />
         <MainCopy>개인 맞춤 운동 프로그램</MainCopy>
         <SubCopy>한 사람을 위한</SubCopy>
         <SubCopy>개별화된 운동 프로그램을 만듭니다.</SubCopy>
@@ -76,8 +134,8 @@ function About() {
         <SubCopy>더 많은 여성에게 용기가 될 수 있도록</SubCopy>
         <SubCopy>당신의 이야기를 기록합니다.</SubCopy>
       </Wrapper>
-      <Wrapper columnDir>
-        <MainCopy>세이프짐의 가치</MainCopy>
+      <Wrapper columnDir backgroundColor={props=>props.theme.gray2}>
+        <ValueMainCopy>세이프짐의 가치</ValueMainCopy>
         <CircleBox>
           <Circle><span>전문성</span></Circle>
           <Circle><span>안전</span></Circle>
