@@ -1,12 +1,14 @@
 import React from "react";
-import IMG from "../assets/images/bg/6.jpeg";
-import SEP from "../assets/images/separators/Graphic motif_1.svg";
 import styled from "styled-components/macro";
+import { useInView } from 'react-intersection-observer';
+import { motion } from 'framer-motion';
+import IntroCoverIMG from "../assets/images/bg/6.jpeg";
+import StepSVG from "../assets/images/separators/Graphic motif_1.svg";
 import Wrapper from "../css/my-styled-components/Wrapper";
-// import {MainCopy, SubCopy, EngCopy} from "../css/my-styled-components/Copy";
 import {MainCopy} from "../css/my-styled-components/Copy";
+
 // Desktop
-const GradientLayer = styled.div`
+const ImageCover = styled(motion.div)`
   position: absolute;
   background: linear-gradient(
       90deg,
@@ -15,7 +17,7 @@ const GradientLayer = styled.div`
     ),
     /* linear-gradient(rgba(18, 18, 18, 0.5) 0%, rgba(18, 18, 18, 0) 21.11%),
     linear-gradient(rgba(18, 18, 18, 0) 50%, rgba(18, 18, 18, 0.5) 100%), */
-    url(${IMG});
+    url(${IntroCoverIMG});
   background-repeat: no-repeat;
   background-size: cover;
   background-position: center;
@@ -23,6 +25,25 @@ const GradientLayer = styled.div`
   height: 100%;
   z-index: -1;
 `;
+const ImageCoverAnimation = () => {
+  const [ref, inView] = useInView({
+    triggerOnce: true,
+  });
+  return (
+    <ImageCover
+      animate={{
+        opacity: inView ? 1 : 0,
+      }}
+      transition={{
+        delay: 0.5,
+        ease: "easeInOut",
+        duration: 0.5
+      }}
+      initial={false}
+      ref={ref}
+    />
+  );
+}
 // const Column = styled.div`
 //   display: flex;
 //   flex-direction: column;
@@ -32,7 +53,7 @@ const GradientLayer = styled.div`
 //   height: inherit;
 //   flex: 1;
 //   &:nth-child(1) {
-//     background: url(${IMG});
+//     background: url(${IntroCoverIMG});
 //     background-repeat: no-repeat;
 //     background-size: cover;
 //     background-position: center;
@@ -42,14 +63,39 @@ const GradientLayer = styled.div`
 //     flex: 1.25;
 //   }
 // `;
-const CopyWrapper = styled.div`
+const CopyWrapper = styled(motion.div)`
   display:flex;
   flex-direction:column;
   justify-content:center;
   align-items:center;
-  /* margin-left: 3rem; */
   margin-bottom: 3rem;
 `;
+const TextAnimation = () => {
+  const [ref, inView] = useInView({
+    triggerOnce: true,
+  });
+  return (
+    <CopyWrapper
+      animate={{
+        opacity: inView ? 1 : 0,
+      }}
+      transition={{
+        delay: 0.3,
+        ease: "easeInOut",
+        duration: 0.5
+      }}
+      initial={false}
+      ref={ref}
+    >
+      <IntroCopy>
+        empowering all women
+      </IntroCopy>
+      <IntroCopy>
+        당신을 건강하게, 더 많은 여성을 건강하게
+      </IntroCopy>
+    </CopyWrapper>
+  );
+}
 const IntroCopy = styled(MainCopy)`
   font-weight: 100;
   font-size: 2.7rem;
@@ -62,7 +108,7 @@ const Separator = styled.img`
   height: 100px;
 `;
 Separator.defaultProps = {
-  src: SEP,
+  src: StepSVG,
   alt: "divider",
 };
 
@@ -75,7 +121,7 @@ const MobileWrapper = styled(Wrapper)`
     ),
     linear-gradient(rgba(18, 18, 18, 0.5) 0%, rgba(18, 18, 18, 0) 21.11%),
     linear-gradient(rgba(18, 18, 18, 0) 50%, rgba(18, 18, 18, 0.5) 100%),
-    url(${IMG});
+    url(${IntroCoverIMG});
   background-repeat: no-repeat;
   background-size: cover;
   background-position: center;
@@ -87,6 +133,7 @@ function Intro({ isMobile }) {
         <MobileWrapper id="intro">
           {/* logo */}
           {/* <Img/> */}
+          {TextAnimation()}
           <CopyWrapper>
             <MainCopy style={{fontWeight:"600"}}>
               empowering all women
@@ -102,12 +149,16 @@ function Intro({ isMobile }) {
   } else {
     return (
       <>
-        <Wrapper id="intro"
-        relative
-        backgroundColor="transparent">
-          <GradientLayer />
+        <Wrapper
+          id="intro"
+          relative
+          backgroundColor="transparent"
+        >
+          {ImageCoverAnimation()}
           {/* <Column>둥둥 뜨는 로고</Column> */}
           {/* <Column> */}
+          {TextAnimation()}
+{/*           
             <CopyWrapper>
               <IntroCopy>
                 empowering all women
@@ -115,7 +166,7 @@ function Intro({ isMobile }) {
               <IntroCopy>
                 당신을 건강하게, 더 많은 여성을 건강하게
               </IntroCopy>
-            </CopyWrapper>
+            </CopyWrapper> */}
           {/* </Column> */}
           <Separator />
         </Wrapper>
