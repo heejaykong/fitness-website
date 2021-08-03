@@ -89,6 +89,10 @@ const LogoMaskAnimation = () => {
 const CopyBox = styled.div`
   position: absolute;
   top: 22rem;
+  @media (max-width: ${(props) => props.theme.BREAKPOINT}px) {
+    /* mobile view */
+    top: 90%;
+  }
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -142,14 +146,14 @@ const Circle = styled(motion.div)`
   display: flex;
   justify-content: center;
   align-items: center;
-  width: clamp(10rem, 20vw, 20rem);
-  height: clamp(10rem, 20vw, 20rem);
-  margin: 0.3rem;
+  width: clamp(6rem, 20vw, 20rem);
+  height: clamp(6rem, 20vw, 20rem);
+  margin: 0 0.5rem;
   background-color: ${props=>props.theme.blue};
   border-radius: 50%;
   span {
     color: ${props=>props.theme.white};
-    font-size: 2rem;
+    font-size: clamp(1.5rem, 3vw, 2.5rem);
     font-weight: 900;
   }
 `;
@@ -171,7 +175,7 @@ const CircleAnimation = () => {
       initial={false}
       ref={ref}
     >
-      <span>전문성</span>
+      <MainCopy thick>전문성</MainCopy>
     </Circle>
     <Circle
       animate={{
@@ -186,7 +190,7 @@ const CircleAnimation = () => {
       initial={false}
       ref={ref}
     >
-      <span>안전</span>
+      <MainCopy thick>안전</MainCopy>
     </Circle>
     <Circle
       animate={{
@@ -201,7 +205,7 @@ const CircleAnimation = () => {
       initial={false}
       ref={ref}
     >
-      <span>성장</span>
+      <MainCopy thick>성장</MainCopy>
     </Circle>
     </>
   );

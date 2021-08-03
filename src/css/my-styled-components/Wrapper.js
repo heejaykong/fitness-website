@@ -10,6 +10,10 @@ const Wrapper = styled.div`
   height: ${props => props.height || `40em;`};
   background-color: ${props => props.backgroundColor || props.theme.blue};
 
+  @media (max-width: ${(props) => props.theme.BREAKPOINT}px) {
+    /* mobile view */
+    height: 150vw;
+  }
   .mobile {
   }
 `;

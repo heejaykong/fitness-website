@@ -1,6 +1,7 @@
 import React from "react";
 import styled from "styled-components/macro";
 import Wrapper from "../css/my-styled-components/Wrapper";
+import {MainCopy, EngCopy} from "../css/my-styled-components/Copy";
 
 const TableBox = styled.table`
   width: 70%;
@@ -13,15 +14,15 @@ const TRow = styled.tr`
 const TData = styled.td`
   display: flex;
   flex-direction: column;
-  & > span {
+  & > ${EngCopy} {
     color: ${props=>props.theme.blue};
-    font-size: 1.2rem;
+    /* font-size: 1rem; */
     font-weight: 600;
   }
   &:last-child{
     align-items: flex-end;
   }
-  &:last-child > span {
+  &:last-child > ${EngCopy} {
     letter-spacing: -0.1rem;
   }
 `;
@@ -30,12 +31,17 @@ const THeader = styled.div`
   border-bottom: 1.5px solid ${props=>props.theme.blue};
   padding-top: 1rem;
   margin-bottom: 2.5rem;
+  @media (max-width: ${(props) => props.theme.BREAKPOINT}px) {
+    /* mobile view */
+    padding-top: 0rem;
+    margin-bottom: 0rem;
+  }
 `;
-const H1 = styled.h1`
-  font-size: 1.7rem;
+const H1 = styled(MainCopy)`
   font-weight: 900;
   color: ${props=>props.theme.blue};
   text-transform: uppercase;
+  letter-spacing: -0.025rem;
 `;
 const H4 = styled(H1)`
   font-size: 1rem;
@@ -62,32 +68,32 @@ function Price() {
           </THeader>
           <TRow>
             <TData>
-              <span>PERSONAL TRAINING</span>
-              <span>10 sessions</span>
+              <EngCopy>PERSONAL TRAINING</EngCopy>
+              <EngCopy>10 sessions</EngCopy>
             </TData>
             <TData>
-              <span>1회 / 99,000</span>
-              <span>990,000</span>
-            </TData>
-          </TRow>
-          <TRow>
-            <TData>
-              <span>PERSONAL TRAINING</span>
-              <span>20 sessions</span>
-            </TData>
-            <TData>
-              <span>1회 / 88,000</span>
-              <span>1,170,000</span>
+              <EngCopy>1회 / 99,000</EngCopy>
+              <EngCopy>990,000</EngCopy>
             </TData>
           </TRow>
           <TRow>
             <TData>
-              <span>PERSONAL TRAINING</span>
-              <span>30 sessions</span>
+              <EngCopy>PERSONAL TRAINING</EngCopy>
+              <EngCopy>20 sessions</EngCopy>
             </TData>
             <TData>
-              <span>1회 / 77,000</span>
-              <span>2,310,000</span>
+              <EngCopy>1회 / 88,000</EngCopy>
+              <EngCopy>1,760,000</EngCopy>
+            </TData>
+          </TRow>
+          <TRow>
+            <TData>
+              <EngCopy>PERSONAL TRAINING</EngCopy>
+              <EngCopy>30 sessions</EngCopy>
+            </TData>
+            <TData>
+              <EngCopy>1회 / 77,000</EngCopy>
+              <EngCopy>2,310,000</EngCopy>
             </TData>
           </TRow>
         </TableBox>

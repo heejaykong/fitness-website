@@ -98,12 +98,20 @@ const TextAnimation = () => {
 }
 const IntroCopy = styled(MainCopy)`
   font-weight: 100;
-  font-size: 2.7rem;
+  font-size: clamp(1.8rem, 3vw, 2.5rem);
+  @media (max-width: ${(props) => props.theme.BREAKPOINT}px) {
+    /* mobile view */
+    font-size: clamp(1rem, 5vw, 2.5rem);
+  }
   letter-spacing: 0rem;
 `;
 const Separator = styled.img`
   position: absolute;
   top: 36.8rem;
+  @media (max-width: ${(props) => props.theme.BREAKPOINT}px) {
+    /* mobile view */
+    top: 26.8rem;
+  }
   width: 100%;
   height: 100px;
 `;
@@ -134,16 +142,15 @@ function Intro({ isMobile }) {
           {/* logo */}
           {/* <Img/> */}
           {TextAnimation()}
-          <CopyWrapper>
+          {/* <CopyWrapper>
             <MainCopy style={{fontWeight:"600"}}>
               empowering all women
             </MainCopy>
             <MainCopy>
               당신을 건강하게, 더 많은 여성을 건강하게
             </MainCopy>
-          </CopyWrapper>
+          </CopyWrapper> */}
         </MobileWrapper>
-        <Separator /> {/*작대기*/}
       </>
     );
   } else {
