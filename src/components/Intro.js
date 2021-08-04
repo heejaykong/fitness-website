@@ -2,7 +2,7 @@ import React from "react";
 import styled from "styled-components/macro";
 import { useInView } from 'react-intersection-observer';
 import { motion } from 'framer-motion';
-import IntroCoverIMG from "../assets/images/bg/6.jpeg";
+import IntroCoverIMG from "../assets/images/bg/1.jpeg";
 import StepSVG from "../assets/images/separators/Graphic motif_1.svg";
 import Wrapper from "../css/my-styled-components/Wrapper";
 import {MainCopy} from "../css/my-styled-components/Copy";
@@ -10,17 +10,17 @@ import {MainCopy} from "../css/my-styled-components/Copy";
 // Desktop
 const ImageCover = styled(motion.div)`
   position: absolute;
-  background: linear-gradient(
+  background-image: linear-gradient(
       90deg,
-      rgba(18, 18, 18, 0.5) 0%,
-      rgba(18, 18, 18, 0.5) 50%
+      rgba(18, 18, 18, 0.6) 0%,
+      rgba(18, 18, 18, 0.6) 50%
     ),
     /* linear-gradient(rgba(18, 18, 18, 0.5) 0%, rgba(18, 18, 18, 0) 21.11%),
     linear-gradient(rgba(18, 18, 18, 0) 50%, rgba(18, 18, 18, 0.5) 100%), */
     url(${IntroCoverIMG});
-  background-repeat: no-repeat;
+  /* background-repeat: no-repeat; */
   background-size: cover;
-  background-position: center;
+  background-position: 75% 75%;;
   width: 100%;
   height: 100%;
   z-index: -1;
@@ -87,23 +87,31 @@ const TextAnimation = () => {
       initial={false}
       ref={ref}
     >
-      <IntroCopy>
+      <IntroCopy className="eng">
         empowering all women
       </IntroCopy>
       <IntroCopy>
-        당신을 건강하게, 더 많은 여성을 건강하게
+        당신을 건강하게, 더 많은 <span>여성</span>을 건강하게
       </IntroCopy>
     </CopyWrapper>
   );
 }
 const IntroCopy = styled(MainCopy)`
-  font-weight: 100;
+  font-weight: 900;
   font-size: clamp(1.8rem, 3vw, 2.5rem);
   @media (max-width: ${(props) => props.theme.BREAKPOINT}px) {
     /* mobile view */
     font-size: clamp(1rem, 5vw, 2.5rem);
   }
-  letter-spacing: 0rem;
+  letter-spacing: 0.1rem;
+  & > span {
+    color: #2970ff;
+    text-shadow: rgba(0,0,0,1) 0px 0px 10px;
+  }
+  &:first-child {
+    font-weight: 700;
+    letter-spacing: 0.2rem;
+  }
 `;
 const Separator = styled.img`
   position: absolute;
@@ -122,24 +130,25 @@ Separator.defaultProps = {
 
 // Mobile
 const MobileWrapper = styled(Wrapper)`
-  background: linear-gradient(
+  /* background: linear-gradient(
       90deg,
       rgba(18, 18, 18, 0.5) 0%,
       rgba(18, 18, 18, 0.5) 50%
     ),
     linear-gradient(rgba(18, 18, 18, 0.5) 0%, rgba(18, 18, 18, 0) 21.11%),
     linear-gradient(rgba(18, 18, 18, 0) 50%, rgba(18, 18, 18, 0.5) 100%),
-    url(${IntroCoverIMG});
-  background-repeat: no-repeat;
+    url(${IntroCoverIMG}); */
+  /* background-repeat: no-repeat;
   background-size: cover;
-  background-position: center;
+  background-position: center; */
 `;
 function Intro({ isMobile }) {
   if (isMobile) {
     return (
       <>
-        <MobileWrapper id="intro">
+        <MobileWrapper backgroundColor="transparent" id="intro">
           {/* logo */}
+          {ImageCoverAnimation()}
           {/* <Img/> */}
           {TextAnimation()}
           {/* <CopyWrapper>

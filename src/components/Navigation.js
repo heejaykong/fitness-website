@@ -3,10 +3,7 @@ import styled from "styled-components/macro";
 import { HashRouter } from "react-router-dom";
 import { HashLink as Link } from "react-router-hash-link";
 import LOGO from "../assets/logos/SAFE-GYM_LOGO_black.png";
-// Hover했을때 메뉴 파란색으로 변하기(완)
-// SPA인데, 네비게이터를 눌렀을때 그 섹션에 엥커되게끔 하는걸로(stories 빼고)(완)
-// stories를 따로 맨 우측에 파란색으로 빼는 걸로(완)
-// stories 페이지는(브랜드스토리가 들어가는) 따로 페이지로 들어가질 예정(완)
+import chevronDownSVG from "../assets/icons/chevron-down-solid.svg";
 const $ = (selector) => document.querySelector(selector);
 
 const Nav = styled.nav`
@@ -19,19 +16,28 @@ const Nav = styled.nav`
   box-sizing: border-box;
   height: 4rem;
   padding: 0rem 3.125rem;
-  background-color: rgba(0, 0, 0, 0.3);
-  /* background-color: rgba(59, 130, 246, 0.5); */
+  background-color: rgba(0, 0, 0, 0.4);
+  border-bottom: 0.1px solid rgba(255,255,255,0.5);
   font-size: 0.9rem;
   z-index: 10;
   @media (max-width: ${(props) => props.theme.BREAKPOINT}px) {
     flex-direction: column;
-    align-items: flex-start;
+    align-items: center;
+    height: 7rem;
     padding: 2rem 0rem;
-    padding-left: 2rem;
+    /* padding-left: 2rem; */
     font-size: 1.1rem;
+
+    &.shown {
+      height: inherit;
+    }
   }
 `;
-const NavColumn = styled.div``;
+const NavColumn = styled.div`
+  display: flex;
+  flex-direction:column;
+  align-items: center;
+`;
 const NavList = styled.ul`
   display: flex;
   margin-left: 2rem;
@@ -75,50 +81,75 @@ const NavLink = styled(Link)`
     color: ${(props) => props.theme.blue};
   }
 `;
-const Arrow = styled.span`
-  @media (min-width: ${(props) => props.theme.BREAKPOINT}px) {
-    display: none;
-  }
-  @media (max-width: ${(props) => props.theme.BREAKPOINT}px) {
-    display: inline-block;
-    margin: 0 0.5rem;
-    transition: transform 0.3s ease-in-out;
-    &.rotated {
-      transform: rotate(-180deg);
-    }
-    &:hover {
-      cursor: pointer;
-    }
-  }
-`;
+// const Arrow = styled.span`
+//   @media (min-width: ${(props) => props.theme.BREAKPOINT}px) {
+//     display: none;
+//   }
+//   @media (max-width: ${(props) => props.theme.BREAKPOINT}px) {
+//     display: inline-block;
+//     transition: transform 0.3s ease-in-out;
+//     &.rotated {
+//       transform: rotate(-180deg);
+//     }
+//     &:hover {
+//       cursor: pointer;
+//     }
+//   }
+//   `;
 const clickHandler = () => {
+  $(".Nav").classList.toggle("shown");
   $(".NavList").classList.toggle("shown");
   $(".Arrow").classList.toggle("rotated");
 };
 const Logo = styled.img`
   width: 2.4rem;
+  @media (max-width: ${(props) => props.theme.BREAKPOINT}px) {
+    margin-bottom: 0.8rem;
+  }
   filter: invert(1);
 `;
 Logo.defaultProps = {
   src: LOGO,
   alt: "logo",
 };
+const ArrowDown = styled.img`
+  width: 1rem;
+  filter: invert(1);
+  @media (min-width: ${(props) => props.theme.BREAKPOINT}px) {
+    display: none;
+  }
+  @media (max-width: ${(props) => props.theme.BREAKPOINT}px) {
+    display: inline-block;
+    transition: transform 0.3s ease-in-out;
+    &.rotated {
+      transform: rotate(180deg);
+    }
+    &:hover {
+      cursor: pointer;
+    }
+  }
+`;
+ArrowDown.defaultProps ={
+  src: chevronDownSVG,
+  alt: "arrowDown"
+}
 function Navigation() {
   return (
-    <Nav>
+    <Nav className="Nav">
       <HashRouter>
         <NavColumn>
           <NavLink to="/#top">
             <Logo />
           </NavLink>
-          <Arrow className="Arrow" onClick={clickHandler}>
-            🔽
-          </Arrow>
+          {/* <Arrow className="Arrow" onClick={clickHandler}>
+            <ArrowDown/>
+          </Arrow> */}
+          <ArrowDown className="Arrow" onClick={clickHandler} />
         </NavColumn>
         <NavColumn>
           <NavList className="NavList">
             <NavBtn>
-              <NavLink to="/#about">SAFE GYM</NavLink>
+              <NavLink className="eng" to="/#about">SAFE GYM</NavLink>
             </NavBtn>
             <NavBtn>
               <NavLink to="/#price">수강료</NavLink>

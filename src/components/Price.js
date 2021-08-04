@@ -38,7 +38,7 @@ const THeader = styled.div`
   }
 `;
 const H1 = styled(MainCopy)`
-  font-weight: 900;
+  font-weight: 600;
   color: ${props=>props.theme.blue};
   text-transform: uppercase;
   letter-spacing: -0.025rem;
@@ -57,8 +57,8 @@ function Price() {
             <TRow>
               <TData>
                 <div>
-                  <H1>safe gym</H1>
-                  <H1>personal training price</H1>
+                  <H1 className="eng">safe gym</H1>
+                  <H1 className="eng">personal training price</H1>
                   <H4 as="h4">
                     이화여대 체육학 석사, 건강운동관리사, 경력 7년 이상
                   </H4>
@@ -68,8 +68,8 @@ function Price() {
           </THeader>
           <TRow>
             <TData>
-              <EngCopy>PERSONAL TRAINING</EngCopy>
-              <EngCopy>10 sessions</EngCopy>
+              <EngCopy className="eng">PERSONAL TRAINING</EngCopy>
+              <EngCopy className="eng">10 sessions</EngCopy>
             </TData>
             <TData>
               <EngCopy>1회 / 99,000</EngCopy>
@@ -78,8 +78,8 @@ function Price() {
           </TRow>
           <TRow>
             <TData>
-              <EngCopy>PERSONAL TRAINING</EngCopy>
-              <EngCopy>20 sessions</EngCopy>
+              <EngCopy className="eng">PERSONAL TRAINING</EngCopy>
+              <EngCopy className="eng">20 sessions</EngCopy>
             </TData>
             <TData>
               <EngCopy>1회 / 88,000</EngCopy>
@@ -88,8 +88,8 @@ function Price() {
           </TRow>
           <TRow>
             <TData>
-              <EngCopy>PERSONAL TRAINING</EngCopy>
-              <EngCopy>30 sessions</EngCopy>
+              <EngCopy className="eng">PERSONAL TRAINING</EngCopy>
+              <EngCopy className="eng">30 sessions</EngCopy>
             </TData>
             <TData>
               <EngCopy>1회 / 77,000</EngCopy>
