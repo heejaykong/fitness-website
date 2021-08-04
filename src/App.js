@@ -1,5 +1,4 @@
 import React, { useState, useEffect } from "react";
-// import 'bootstrap/dist/css/bootstrap.min.css';
 import { HashRouter, Switch, Route } from "react-router-dom";
 import Navigation from "./components/Navigation";
 import Home from "./routes/Home";
@@ -11,10 +10,11 @@ import theme from "./css/theme";
 
 function App() {
   const [width, setWidth] = useState(window.innerWidth);
+  
   useEffect(() => {
     const handleWindowSizeChange = () => setWidth(window.innerWidth);
-    document.title = `${width}`;
     window.addEventListener("resize", handleWindowSizeChange);
+
     return () => {
       window.removeEventListener("resize", handleWindowSizeChange);
     };
