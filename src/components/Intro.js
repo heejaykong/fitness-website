@@ -110,9 +110,14 @@ const IntroCopy = styled(MainCopy)`
     text-shadow: rgba(0,0,0,1) 0px 0px 10px;
   }
   &:first-child {
-    font-weight: 400;
+    font-weight: 600;
+    font-size: clamp(1.8rem, 5.8vw, 4rem);
+    @media (max-width: ${(props) => props.theme.BREAKPOINT}px) {
+      /* mobile view */
+      font-size: clamp(1rem, 6.8vw, 5rem);
+    }
     letter-spacing: 0.1rem;
-    /* margin-bottom: 1rem; */
+    margin-bottom: 1rem;
   }
 `;
 const Separator = styled.img`
