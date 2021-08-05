@@ -96,9 +96,10 @@ const TextAnimation = () => {
     </CopyWrapper>
   );
 }
+
 const IntroCopy = styled(MainCopy)`
   font-weight: 900;
-  font-size: clamp(1.8rem, 3vw, 2.5rem);
+  font-size: clamp(1.8rem, 5vw, 3rem);
   @media (max-width: ${(props) => props.theme.BREAKPOINT}px) {
     /* mobile view */
     font-size: clamp(1rem, 5vw, 2.5rem);
@@ -109,8 +110,9 @@ const IntroCopy = styled(MainCopy)`
     text-shadow: rgba(0,0,0,1) 0px 0px 10px;
   }
   &:first-child {
-    font-weight: 700;
-    letter-spacing: 0.2rem;
+    font-weight: 400;
+    letter-spacing: 0.1rem;
+    /* margin-bottom: 1rem; */
   }
 `;
 const Separator = styled.img`
