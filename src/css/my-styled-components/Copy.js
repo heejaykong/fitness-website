@@ -22,7 +22,7 @@ export const SubCopy = styled.h4`
     /* mobile view */
     font-size: clamp(0.9rem, 3.5vw, 2rem);
   }
-  font-weight: 100;
+  font-weight: ${props => props.fontWeight || 100};
   text-transform: uppercase;
   -webkit-transition: font-size 0.5s ease-in-out;
   -moz-transition: font-size 0.5s ease-in-out;
