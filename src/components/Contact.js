@@ -43,13 +43,13 @@ function Contact() {
       <Wrapper height="35rem" id="contact">
         <CopyBox>
           <SubCopy style={{textAlign:"center"}}>위치<br/>서울특별시 마포구 월드컵로 104 2층</SubCopy>
-          <a href="https://www.instagram.com/_safegym/">
+          <a target="_blank" rel="noopener noreferrer" href="https://www.instagram.com/_safegym/">
             <SubCopy fontWeight="600">세이프짐 인스타그램</SubCopy> 
           </a>
-          <a href="http://naver.me/5SWqGGm2">
+          <a target="_blank" rel="noopener noreferrer" href="https://map.naver.com/v5/entry/place/1553788392">
             <SubCopy fontWeight="600">네이버로 예약하기</SubCopy> 
           </a>
-          <a href="http://pf.kakao.com/_XIiFs">
+          <a target="_blank" rel="noopener noreferrer" href="http://pf.kakao.com/_XIiFs">
             <SubCopy fontWeight="600">카카오톡 상담하기</SubCopy>
           </a>
           <CopyrightBox>
