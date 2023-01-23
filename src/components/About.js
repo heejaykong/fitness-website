@@ -1,13 +1,13 @@
 import React from "react";
 import styled from "styled-components/macro";
-import { useInView } from 'react-intersection-observer';
-import { motion } from 'framer-motion';
+import { useInView } from "react-intersection-observer";
+import { motion } from "framer-motion";
 import LOGO from "../assets/logos/SAFE-GYM_SYMBOL_black.png";
 import IMG1 from "../assets/images/bg/5.jpeg";
 import IMG2 from "../assets/images/bg/3.jpeg";
 import StepSVG from "../assets/images/separators/Graphic motif_1.svg";
 import Wrapper from "../css/my-styled-components/Wrapper";
-import {MainCopy, SubCopy} from "../css/my-styled-components/Copy";
+import { MainCopy, SubCopy } from "../css/my-styled-components/Copy";
 
 const ImageCover = styled(motion.div)`
   position: absolute;
@@ -18,7 +18,7 @@ const ImageCover = styled(motion.div)`
     ),
     /* linear-gradient(rgba(18, 18, 18, 0.5) 0%, rgba(18, 18, 18, 0) 21.11%),
     linear-gradient(rgba(18, 18, 18, 0) 50%, rgba(18, 18, 18, 0.5) 100%), */
-    url(${IMG2});
+      url(${IMG2});
   background-repeat: no-repeat;
   background-size: cover;
   background-position: center;
@@ -37,13 +37,13 @@ const ImageCoverAnimation = () => {
       }}
       transition={{
         ease: "easeInOut",
-        duration: 0.5
+        duration: 0.5,
       }}
       initial={false}
       ref={ref}
     />
   );
-}
+};
 const Container = styled.div`
   position: relative;
   display: flex;
@@ -79,7 +79,7 @@ const LogoMaskAnimation = () => {
       transition={{
         delay: 0.1,
         ease: "easeInOut",
-        duration: 1
+        duration: 1,
       }}
       initial={false}
       ref={ref}
@@ -101,7 +101,7 @@ const CopyBox = styled.div`
 const StepIMG = styled(motion.img)`
   width: 100%;
   margin-bottom: 2rem;
-  opacity: ${props => props.inView ? 1 : 0};
+  opacity: ${(props) => (props.inView ? 1 : 0)};
   transition: all 1s ease-in-out;
 `;
 StepIMG.defaultProps = {
@@ -110,12 +110,12 @@ StepIMG.defaultProps = {
 };
 const stepVariants = {
   initial: {
-    clipPath: 'inset(0 100% 0 0)',
+    clipPath: "inset(0 100% 0 0)",
   },
   animate: {
-    clipPath: 'inset(0)'
-  }
-}
+    clipPath: "inset(0)",
+  },
+};
 const StepAnimation = () => {
   const [ref, inView] = useInView({
     triggerOnce: true,
@@ -125,15 +125,15 @@ const StepAnimation = () => {
       ref={ref}
       inView={inView}
       variants={stepVariants}
-      initial= {inView? "" : "initial"}
-      animate= {inView? "animate" : ""}
+      initial={inView ? "" : "initial"}
+      animate={inView ? "animate" : ""}
       transition={{ ease: "easeInOut", duration: 1 }}
     />
   );
 };
 
 const ValueMainCopy = styled(MainCopy)`
-  color: ${props=>props.theme.blue};
+  color: ${(props) => props.theme.blue};
 `;
 const CircleBox = styled.div`
   margin-top: 3rem;
@@ -149,10 +149,10 @@ const Circle = styled(motion.div)`
   width: clamp(6rem, 20vw, 20rem);
   height: clamp(6rem, 20vw, 20rem);
   margin: 0 0.5rem;
-  background-color: ${props=>props.theme.blue};
+  background-color: ${(props) => props.theme.blue};
   border-radius: 50%;
   span {
-    color: ${props=>props.theme.white};
+    color: ${(props) => props.theme.white};
     font-size: clamp(1.5rem, 3vw, 2.5rem);
     font-weight: 900;
   }
@@ -163,50 +163,50 @@ const CircleAnimation = () => {
   });
   return (
     <>
-    <Circle
-      animate={{
-        y: inView ? 0 : `1rem`,
-        opacity: inView ? 1 : 0,
-      }}
-      transition={{
-        ease: "easeInOut",
-        duration: 1
-      }}
-      initial={false}
-      ref={ref}
-    >
-      <MainCopy thick>전문성</MainCopy>
-    </Circle>
-    <Circle
-      animate={{
-        y: inView ? 0 : `1rem`,
-        opacity: inView ? 1 : 0,
-      }}
-      transition={{
-        delay: 0.1,
-        ease: "easeInOut",
-        duration: 1
-      }}
-      initial={false}
-      ref={ref}
-    >
-      <MainCopy thick>안전</MainCopy>
-    </Circle>
-    <Circle
-      animate={{
-        y: inView ? 0 : `1rem`,
-        opacity: inView ? 1 : 0,
-      }}
-      transition={{
-        delay: 0.2,
-        ease: "easeInOut",
-        duration: 1
-      }}
-      initial={false}
-      ref={ref}
-    >
-      <MainCopy thick>성장</MainCopy>
-    </Circle>
+      <Circle
+        animate={{
+          y: inView ? 0 : `1rem`,
+          opacity: inView ? 1 : 0,
+        }}
+        transition={{
+          ease: "easeInOut",
+          duration: 1,
+        }}
+        initial={false}
+        ref={ref}
+      >
+        <MainCopy thick>전문성</MainCopy>
+      </Circle>
+      <Circle
+        animate={{
+          y: inView ? 0 : `1rem`,
+          opacity: inView ? 1 : 0,
+        }}
+        transition={{
+          delay: 0.1,
+          ease: "easeInOut",
+          duration: 1,
+        }}
+        initial={false}
+        ref={ref}
+      >
+        <MainCopy thick>안전</MainCopy>
+      </Circle>
+      <Circle
+        animate={{
+          y: inView ? 0 : `1rem`,
+          opacity: inView ? 1 : 0,
+        }}
+        transition={{
+          delay: 0.2,
+          ease: "easeInOut",
+          duration: 1,
+        }}
+        initial={false}
+        ref={ref}
+      >
+        <MainCopy thick>성장</MainCopy>
+      </Circle>
     </>
   );
 };
@@ -237,7 +237,7 @@ function About() {
         <SubCopy>더 많은 여성에게 용기가 될 수 있도록</SubCopy>
         <SubCopy>당신의 이야기를 기록합니다.</SubCopy>
       </Wrapper>
-      <Wrapper columnDir backgroundColor={props=>props.theme.gray2}>
+      <Wrapper columnDir backgroundColor={(props) => props.theme.gray2}>
         <ValueMainCopy>세이프짐의 가치</ValueMainCopy>
         <CircleBox>
           {CircleAnimation()}

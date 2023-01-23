@@ -1,11 +1,13 @@
 import React from "react";
 import styled from "styled-components/macro";
-import { useInView } from 'react-intersection-observer';
-import { motion } from 'framer-motion';
+import { useInView } from "react-intersection-observer";
+import { motion } from "framer-motion";
 import IntroCoverIMG from "../assets/images/bg/1.jpeg";
 import StepSVG from "../assets/images/separators/Graphic motif_1.svg";
+import introVideo from "../assets/videos/safe_gym_intro_video.mp4";
+
 import Wrapper from "../css/my-styled-components/Wrapper";
-import {MainCopy} from "../css/my-styled-components/Copy";
+import { MainCopy } from "../css/my-styled-components/Copy";
 
 // Desktop
 const ImageCover = styled(motion.div)`
@@ -17,10 +19,10 @@ const ImageCover = styled(motion.div)`
     ),
     /* linear-gradient(rgba(18, 18, 18, 0.5) 0%, rgba(18, 18, 18, 0) 21.11%),
     linear-gradient(rgba(18, 18, 18, 0) 50%, rgba(18, 18, 18, 0.5) 100%), */
-    url(${IntroCoverIMG});
+      url(${IntroCoverIMG});
   /* background-repeat: no-repeat; */
   background-size: cover;
-  background-position: 75% 75%;;
+  background-position: 75% 75%;
   width: 100%;
   height: 100%;
   z-index: -1;
@@ -37,13 +39,13 @@ const ImageCoverAnimation = () => {
       transition={{
         delay: 0.5,
         ease: "easeInOut",
-        duration: 0.5
+        duration: 0.5,
       }}
       initial={false}
       ref={ref}
     />
   );
-}
+};
 // const Column = styled.div`
 //   display: flex;
 //   flex-direction: column;
@@ -64,10 +66,10 @@ const ImageCoverAnimation = () => {
 //   }
 // `;
 const CopyWrapper = styled(motion.div)`
-  display:flex;
-  flex-direction:column;
-  justify-content:center;
-  align-items:center;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
   margin-bottom: 3rem;
 `;
 const TextAnimation = () => {
@@ -82,20 +84,18 @@ const TextAnimation = () => {
       transition={{
         delay: 0.3,
         ease: "easeInOut",
-        duration: 0.5
+        duration: 0.5,
       }}
       initial={false}
       ref={ref}
     >
-      <IntroCopy className="eng">
-        empowering all women
-      </IntroCopy>
+      <IntroCopy className="eng">empowering all women</IntroCopy>
       <IntroCopy>
         당신을 건강하게, 더 많은 <span>여성</span>을 건강하게
       </IntroCopy>
     </CopyWrapper>
   );
-}
+};
 
 const IntroCopy = styled(MainCopy)`
   font-weight: 900;
@@ -107,7 +107,7 @@ const IntroCopy = styled(MainCopy)`
   letter-spacing: 0.1rem;
   & > span {
     color: #2970ff;
-    text-shadow: rgba(0,0,0,1) 0px 0px 10px;
+    text-shadow: rgba(0, 0, 0, 1) 0px 0px 10px;
   }
   &:first-child {
     font-weight: 600;
@@ -149,10 +149,17 @@ const MobileWrapper = styled(Wrapper)`
   background-size: cover;
   background-position: center; */
 `;
+
+const Video = styled.video`
+  width: 100%;
+  object-fit: contain;
+`;
+
 function Intro({ isMobile }) {
   if (isMobile) {
     return (
       <>
+        <Video src={introVideo} controls autoPlay loop muted />
         <MobileWrapper backgroundColor="transparent" id="intro">
           {/* logo */}
           {ImageCoverAnimation()}
@@ -172,16 +179,13 @@ function Intro({ isMobile }) {
   } else {
     return (
       <>
-        <Wrapper
-          id="intro"
-          relative
-          backgroundColor="transparent"
-        >
+        <Video src={introVideo} controls autoPlay loop muted />
+        <Wrapper id="intro" relative backgroundColor="transparent">
           {ImageCoverAnimation()}
           {/* <Column>둥둥 뜨는 로고</Column> */}
           {/* <Column> */}
           {TextAnimation()}
-{/*           
+          {/*           
             <CopyWrapper>
               <IntroCopy>
                 empowering all women

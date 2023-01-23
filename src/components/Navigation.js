@@ -17,7 +17,7 @@ const Nav = styled.nav`
   height: 4rem;
   padding: 0rem 3.125rem;
   background-color: rgba(0, 0, 0, 0.4);
-  border-bottom: 0.1px solid rgba(255,255,255,0.5);
+  border-bottom: 0.1px solid rgba(255, 255, 255, 0.5);
   font-size: 0.9rem;
   z-index: 10;
   @media (max-width: ${(props) => props.theme.BREAKPOINT}px) {
@@ -35,7 +35,7 @@ const Nav = styled.nav`
 `;
 const NavColumn = styled.div`
   display: flex;
-  flex-direction:column;
+  flex-direction: column;
   align-items: center;
 `;
 const NavList = styled.ul`
@@ -129,16 +129,24 @@ const ArrowDown = styled.img`
     }
   }
 `;
-ArrowDown.defaultProps ={
+ArrowDown.defaultProps = {
   src: chevronDownSVG,
-  alt: "arrowDown"
-}
+  alt: "arrowDown",
+};
+
+const scrollToTop = () => {
+  window.scroll({
+    top: 0,
+    behavior: "smooth",
+  });
+};
+
 function Navigation() {
   return (
     <Nav className="Nav">
       <HashRouter>
         <NavColumn>
-          <NavLink to="/#top">
+          <NavLink onClick={scrollToTop}>
             <Logo />
           </NavLink>
           {/* <Arrow className="Arrow" onClick={clickHandler}>
@@ -149,7 +157,9 @@ function Navigation() {
         <NavColumn>
           <NavList className="NavList">
             <NavBtn>
-              <NavLink className="eng" to="/#about">SAFE GYM</NavLink>
+              <NavLink className="eng" to="/#about">
+                SAFE GYM
+              </NavLink>
             </NavBtn>
             <NavBtn>
               <NavLink to="/#price">수강료</NavLink>
