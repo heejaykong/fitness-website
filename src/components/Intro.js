@@ -159,7 +159,8 @@ function Intro({ isMobile }) {
   if (isMobile) {
     return (
       <>
-        <Video src={introVideo} autoPlay loop muted />
+        <Video src={introVideo} autoPlay loop muted playsInline />
+
         <MobileWrapper backgroundColor="transparent" id="intro">
           {/* logo */}
           {ImageCoverAnimation()}
@@ -179,7 +180,8 @@ function Intro({ isMobile }) {
   } else {
     return (
       <>
-        <Video src={introVideo} autoPlay loop muted />
+        <Video src={introVideo} autoPlay loop muted playsInline />
+
         <Wrapper id="intro" relative backgroundColor="transparent">
           {ImageCoverAnimation()}
           {/* <Column>둥둥 뜨는 로고</Column> */}
